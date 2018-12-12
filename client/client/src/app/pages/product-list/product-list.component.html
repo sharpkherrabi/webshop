@@ -1,3 +1,21 @@
-<p>
-  product-list works!
-</p>
+<mat-grid-list cols="{{columns}}" rowHeight="2:1" gutterSize="20px">
+    <mat-grid-tile [routerLink]="product._id" *ngFor="let product of products">
+      <<mat-card>
+          <mat-card-header>
+              <mat-card-title>{{product.name}}</mat-card-title>
+              <mat-card-subtitle>Subtitle</mat-card-subtitle>
+          </mat-card-header>
+          <img matCardImage src="Card wide image source">
+          <mat-card-content>
+              Text content
+          </mat-card-content>
+          <mat-card-actions align="start">
+              <button mat-button (click)="onAction1">Action1</button>
+
+          </mat-card-actions>
+          <mat-card-footer>
+              Footer
+          </mat-card-footer>
+      </mat-card>
+      </mat-grid-tile>
+</mat-grid-list>
