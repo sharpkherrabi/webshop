@@ -17,6 +17,7 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductListItemComponent } from './pages/product-list/components/product-list-item/product-list-item.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

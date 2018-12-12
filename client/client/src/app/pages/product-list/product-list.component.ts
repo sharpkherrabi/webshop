@@ -1,3 +1,5 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {BREAKPOINTS} from '@angular/flex-layout';
 import { Product } from './../../models/product';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,16 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  mode: 'large' | 'small' = 'large';
-  columns: Number = 2;
   products: Product[] = [];
 
   constructor() {
-    if (this.mode === 'large') {
-      this.columns = 4;
-    } else {
-      this.columns = 1;
-    }
+
   }
 
   ngOnInit() {
@@ -30,7 +26,10 @@ export class ProductListComponent implements OnInit {
      const p6: Product = {name: '6'};
      const p7: Product = {name: '7'};
      const p8: Product = {name: '8'};
-     this.products = [p1, p2,  p3, p4, p5, p6, p7, p8];
+     const p9: Product = {name: '9'};
+     const p10: Product = {name: '10'};
+     const p11: Product = {name: '11'};
+     this.products = [p1, p2,  p3, p4, p5, p6, p7, p8, p9, p10, p11];
   }
 
 }
