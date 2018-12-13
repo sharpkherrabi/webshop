@@ -1,6 +1,6 @@
-<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutAlign="start stretch">
-    <div *ngFor="let product of products" fxFlex="80%" >
-      <mat-card class="product-card" fxFlex>
+<div class="container">
+    <div *ngFor="let product of splicedData">
+      <mat-card class="product-card">
           <mat-card-header>
               <mat-card-title>{{product.name}}</mat-card-title>
               <mat-card-subtitle>Subtitle</mat-card-subtitle>
@@ -23,3 +23,9 @@
       </mat-card>
     </div>
 </div>
+
+<mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageChangeEvent($event)">
+</mat-paginator>

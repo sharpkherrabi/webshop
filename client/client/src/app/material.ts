@@ -9,6 +9,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import {MatChipsModule} from '@angular/material/chips';
         MatCheckboxModule,
         MatSliderModule,
         MatProgressBarModule,
-        MatChipsModule
+        MatChipsModule,
+        MatIconModule,
+        MatPaginatorModule
     ],
     exports: [
         MatButtonModule,
@@ -34,7 +38,9 @@ import {MatChipsModule} from '@angular/material/chips';
         MatCheckboxModule,
         MatSliderModule,
         MatProgressBarModule,
-        MatChipsModule
+        MatChipsModule,
+        MatIconModule,
+        MatPaginatorModule
     ],
 })
 
