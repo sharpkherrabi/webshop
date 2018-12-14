@@ -1,6 +1,6 @@
 
 .product-card {
-  max-width: 400px;
+  max-width: 300px;
   max-height: 700px;
   border-radius: 1rem;
   margin: 5%;
@@ -12,7 +12,6 @@
   min-width: 200px;
   min-height: auto;
 }
-
 
 @media (min-width: 501px) {
   .container {

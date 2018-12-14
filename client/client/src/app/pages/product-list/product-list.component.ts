@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
 
   // MatPaginator Inputs
   length = 100;
-  pageSize = 5;
+  pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
   // MatPaginator Output
