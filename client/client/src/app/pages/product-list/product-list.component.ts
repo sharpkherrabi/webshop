@@ -12,6 +12,7 @@ import {PageEvent} from '@angular/material';
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
+  // data to show on one page
   splicedData: Product[] = [];
 
   // MatPaginator Inputs
@@ -28,17 +29,33 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     // for develop
-     const p1: Product = {name: '1'};
-     const p2: Product = {name: '2'};
-     const p3: Product = {name: '3'};
-     const p4: Product = {name: '4'};
-     const p5: Product = {name: '5'};
-     const p6: Product = {name: '6'};
-     const p7: Product = {name: '7'};
-     const p8: Product = {name: '8'};
-     const p9: Product = {name: '9'};
-     const p10: Product = {name: '10'};
-     const p11: Product = {name: '11'};
+     const p1: Product = {
+      name: '1',
+      description: 'texttexttext',
+      quantity: 10,
+      unitPrice: 9999,
+      mass: 50,
+      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p2: Product = {name: '2',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p3: Product = {name: '3',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p4: Product = {name: '4',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p5: Product = {name: '5',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p6: Product = {name: '6',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p7: Product = {name: '7',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p8: Product = {name: '8',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p9: Product = {name: '9',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p10: Product = {name: '10',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
+     const p11: Product = {name: '11',
+     image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
      this.products = [p1, p2,  p3, p4, p5, p6, p7, p8, p9, p10, p11];
      /*for (let i = 0 ; i < 10 ; i++ ) {
       this.splicedData.push(this.products[i]);
@@ -55,10 +72,12 @@ export class ProductListComponent implements OnInit {
     });*/
   }
 
+  // set how many items are shown on the page
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
 
+  // change the splicedData data with the items for current page
   pageChangeEvent(event) {
     const offset = ((event.pageIndex + 1) - 1) * event.pageSize;
     this.splicedData = this.products.slice(offset).slice(0, event.pageSize);
