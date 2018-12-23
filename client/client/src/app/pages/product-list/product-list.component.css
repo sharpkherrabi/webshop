@@ -30,13 +30,18 @@
   min-height: auto;
 }
 
+.product-card-footer {
+  margin-left: auto;
+  margin-bottom: auto;
+}
+
 @media (min-width: 501px) {
   .container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
   }
 
 }
@@ -45,8 +50,8 @@
   .container {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
   }
 }
