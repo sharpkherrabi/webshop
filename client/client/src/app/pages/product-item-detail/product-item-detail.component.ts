@@ -20,7 +20,13 @@ export class ProductItemDetailComponent implements OnInit {
 
   ngOnInit() {
     // for develop
-    const p1: Product = {name: '1',description:'Diese Ware ist toll'};
+    const p1: Product = {
+      name: '1',
+      description: 'texttexttext',
+      quantity: 10,
+      unitPrice: 9999,
+      mass: 50,
+      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
 
     this.products = [p1];
     this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
