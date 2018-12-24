@@ -3,15 +3,35 @@
     <mat-toolbar-row>
     <span>Webshop 1:1000000</span>
   <span class="spacer"></span>
-  <mat-icon class="shopping-icon">shopping_cart</mat-icon>
+
     </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-form-field class="searchBar" appearance="outline">
-    <input matInput placeholder="Search">
-  </mat-form-field>
+<mat-tab-group>
+    <mat-tab label="Produkte">
+      <div class="container">
+        <div class="buttons">
+          <button mat-stroked-button color="primary">Produkt hinzufügen</button>
+        </div>
+          <mat-form-field class="searchBar" appearance="outline">
+            <input matInput placeholder="Suchen">
+          </mat-form-field>
+      </div>
+      <div class="products">
+      </div>
+    </mat-tab>
+    <mat-tab label="Bestellungen">
+      <div class="container">
+        <mat-form-field class="searchBar" appearance="outline">
+            <input matInput placeholder="Suchen">
+          </mat-form-field>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 
-<div class="buttons">
-   <button mat-stroked-button color="primary">Produkt hinzufügen</button>
-   <button mat-stroked-button color="primary">Produkt hinzufügen</button>
+
+
+<div class="container">
+  <div class="products">
+  </div>
 </div>
