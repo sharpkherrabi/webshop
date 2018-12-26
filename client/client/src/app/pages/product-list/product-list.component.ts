@@ -136,4 +136,7 @@ export class ProductListComponent implements OnInit {
   viewProduct() {
     this.router.navigate(['/productdetail']);
   }
+  onShoppingCartClicked() {
+    this.router.navigate(['/shoppingCart']);
+  }
 }
