@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent;
 
-  constructor(private shopService: ShopService,private router: Router) {
+  constructor(private shopService: ShopService, private router: Router) {
 
   }
 

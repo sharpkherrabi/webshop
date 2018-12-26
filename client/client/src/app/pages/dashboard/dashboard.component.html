@@ -9,29 +9,76 @@
 
 <mat-tab-group>
     <mat-tab label="Produkte">
-      <div class="container">
+      <div class="functions">
         <div class="buttons">
           <button mat-stroked-button color="primary">Produkt hinzufügen</button>
         </div>
           <mat-form-field class="searchBar" appearance="outline">
+              <mat-label>Suchen</mat-label>
             <input matInput placeholder="Suchen">
           </mat-form-field>
       </div>
-      <div class="products">
-      </div>
+          <div class="container">
+              <div *ngFor="let product of splicedData">
+                <mat-card class="product-card">
+                    <mat-card-header>
+                        <mat-card-title>{{product.name}}</mat-card-title>
+                        <mat-card-subtitle>Verfügbar: {{product.quantity}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img matCardImage src="{{product.image}}">
+                    <mat-card-content>
+                        {{product.description}}<br>
+
+                    </mat-card-content>
+                    <mat-card-actions align="start">
+                        <button mat-stroked-button color="primary">Bearbeiten</button>
+
+                    </mat-card-actions>
+                    <mat-card-footer class="card-footer">
+                      {{product.unitPrice}}€
+                    </mat-card-footer>
+                </mat-card>
+              </div>
+          </div>
+          <mat-paginator [length]="length"
+                        [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="pageChangeEvent($event)">
+          </mat-paginator>
     </mat-tab>
     <mat-tab label="Bestellungen">
-      <div class="container">
+      <div class="functions">
         <mat-form-field class="searchBar" appearance="outline">
+            <mat-label>Suchen</mat-label>
             <input matInput placeholder="Suchen">
           </mat-form-field>
       </div>
+          <div class="container">
+              <div *ngFor="let order of orders">
+                <mat-card class="order-card">
+                    <mat-card-header>
+                        <mat-card-title>Bestellung</mat-card-title>
+                        <mat-card-subtitle>1</mat-card-subtitle>
+                    </mat-card-header>
+                    <img matCardImage src="">
+                    <mat-card-content>
+                        description<br>
+
+                    </mat-card-content>
+                    <mat-card-actions align="start">
+                        <button mat-stroked-button color="primary">Bearbeiten</button>
+
+                    </mat-card-actions>
+                    <mat-card-footer class="card-footer">
+                      Bestellung Footer
+                    </mat-card-footer>
+                </mat-card>
+              </div>
+          </div>
+          <mat-paginator [length]="length"
+                        [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="pageChangeEvent($event)">
+          </mat-paginator>
     </mat-tab>
   </mat-tab-group>
-
-
-
-<div class="container">
-  <div class="products">
-  </div>
-</div>
