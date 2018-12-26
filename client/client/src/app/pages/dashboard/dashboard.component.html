@@ -40,9 +40,9 @@
                 </mat-card>
               </div>
           </div>
-          <mat-paginator [length]="length"
-                        [pageSize]="pageSize"
-                        [pageSizeOptions]="pageSizeOptions"
+          <mat-paginator [length]="productPageLength"
+                        [pageSize]="productPageSize"
+                        [pageSizeOptions]="productPageSizeOptions"
                         (page)="pageChangeEventProduct($event)">
           </mat-paginator>
     </mat-tab>
@@ -75,9 +75,9 @@
                 </mat-card>
               </div>
           </div>
-          <mat-paginator [length]="length"
-                        [pageSize]="pageSize"
-                        [pageSizeOptions]="pageSizeOptions"
+          <mat-paginator [length]="orderPageLength"
+                        [pageSize]="orderPageSize"
+                        [pageSizeOptions]="orderPageSizeOptions"
                         (page)="pageChangeEventOrder($event)">
           </mat-paginator>
     </mat-tab>

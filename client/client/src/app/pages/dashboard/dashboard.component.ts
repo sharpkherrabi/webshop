@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopService } from '../../services/shop.service';
 import { Product } from '../../models/product';
 import {Router} from '@angular/router';
+import {Order} from "../../models/order";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,14 +13,19 @@ export class DashboardComponent implements OnInit {
 
   products: Product[] = [];
   splicedDataProducts: Product[] = []; // data to show on one page
-
-  orders: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-  splicedDataOrders: Number[] = [];
-
   // MatPaginator Inputs
-  length = 100;
-  pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+  productPageLength = 100;
+  productPageSize = 10;
+  productPageSizeOptions: number[] = [5, 10, 25, 100];
+
+  orders: Order[] = [];
+  splicedDataOrders: Order[] = [];
+  // MatPaginator Inputs
+  orderPageLength = 100;
+  orderPageSize = 10;
+  orderPageSizeOptions: number[] = [5, 10, 25, 100];
+
+
 
   constructor(private shopService: ShopService, private router: Router) { }
 
@@ -107,10 +113,11 @@ export class DashboardComponent implements OnInit {
      /*for (let i = 0 ; i < 10 ; i++ ) {
       this.splicedData.push(this.products[i]);
      }*/
-     this.length = this.products.length;
-     this.splicedDataProducts = this.products.slice(((1) - 1) * this.pageSize).slice(0, this.pageSize);
+     this.productPageLength = this.products.length;
+     this.splicedDataProducts = this.products.slice(((1) - 1) * this.productPageSize).slice(0, this.productPageSize);
 
-    this.splicedDataOrders = this.orders.slice(((1) - 1) * this.pageSize).slice(0, this.pageSize);
+     this.orderPageLength = this.orders.length;
+    this.splicedDataOrders = this.orders.slice(((1) - 1) * this.orderPageSize).slice(0, this.orderPageSize);
     // end for develop
 
     // get all products from db
@@ -122,8 +129,13 @@ export class DashboardComponent implements OnInit {
   }
 
   // set how many items are shown on the page
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  setPageSizeOptionsProduct(setPageSizeOptionsInput: string) {
+    this.productPageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  }
+
+  // set how many items are shown on the page
+  setPageSizeOptionsOrder(setPageSizeOptionsInput: string) {
+    this.orderPageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
 
   // change the splicedData data with the items for current page
