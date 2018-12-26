@@ -19,7 +19,7 @@
           </mat-form-field>
       </div>
           <div class="container">
-              <div *ngFor="let product of splicedData">
+              <div *ngFor="let product of splicedDataProducts">
                 <mat-card class="product-card">
                     <mat-card-header>
                         <mat-card-title>{{product.name}}</mat-card-title>
@@ -43,7 +43,7 @@
           <mat-paginator [length]="length"
                         [pageSize]="pageSize"
                         [pageSizeOptions]="pageSizeOptions"
-                        (page)="pageChangeEvent($event)">
+                        (page)="pageChangeEventProduct($event)">
           </mat-paginator>
     </mat-tab>
     <mat-tab label="Bestellungen">
@@ -54,11 +54,11 @@
           </mat-form-field>
       </div>
           <div class="container">
-              <div *ngFor="let order of orders">
+              <div *ngFor="let order of splicedDataOrders">
                 <mat-card class="order-card">
                     <mat-card-header>
                         <mat-card-title>Bestellung</mat-card-title>
-                        <mat-card-subtitle>1</mat-card-subtitle>
+                        <mat-card-subtitle>{{order}}</mat-card-subtitle>
                     </mat-card-header>
                     <img matCardImage src="">
                     <mat-card-content>
@@ -78,7 +78,7 @@
           <mat-paginator [length]="length"
                         [pageSize]="pageSize"
                         [pageSizeOptions]="pageSizeOptions"
-                        (page)="pageChangeEvent($event)">
+                        (page)="pageChangeEventOrder($event)">
           </mat-paginator>
     </mat-tab>
   </mat-tab-group>
