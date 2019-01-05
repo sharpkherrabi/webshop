@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopService } from './../../services/shop.service';
-import { Product } from './../../models/product';
-import {PageEvent} from '@angular/material';
-import {Router, ActivatedRoute} from '@angular/router';
+import { ShopService } from '../../services/shop.service';
+import { Product } from '../../models/product';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +11,10 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   products: Product[] = [];
-  splicedData: Product[] = []; // data to show on one page
+  splicedDataProducts: Product[] = []; // data to show on one page
 
   orders: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  splicedDataOrders: Number[] = [];
 
   // MatPaginator Inputs
   length = 100;
@@ -108,7 +108,9 @@ export class DashboardComponent implements OnInit {
       this.splicedData.push(this.products[i]);
      }*/
      this.length = this.products.length;
-     this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
+     this.splicedDataProducts = this.products.slice(((1) - 1) * this.pageSize).slice(0, this.pageSize);
+
+    this.splicedDataOrders = this.orders.slice(((1) - 1) * this.pageSize).slice(0, this.pageSize);
     // end for develop
 
     // get all products from db
@@ -125,9 +127,14 @@ export class DashboardComponent implements OnInit {
   }
 
   // change the splicedData data with the items for current page
-  pageChangeEvent(event) {
+  pageChangeEventProduct(event) {
     const offset = ((event.pageIndex + 1) - 1) * event.pageSize;
-    this.splicedData = this.products.slice(offset).slice(0, event.pageSize);
+    this.splicedDataProducts = this.products.slice(offset).slice(0, event.pageSize);
+  }
+
+  pageChangeEventOrder(event) {
+    const offset = ((event.pageIndex + 1) - 1) * event.pageSize;
+    this.splicedDataOrders = this.orders.slice(offset).slice(0, event.pageSize);
   }
 
   viewProduct() {
