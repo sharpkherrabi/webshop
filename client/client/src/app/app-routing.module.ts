@@ -24,7 +24,7 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'shoppingCart',
+    path: 'shoppingcart',
     component: CartComponent
   }
 ];
