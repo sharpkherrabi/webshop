@@ -6,34 +6,34 @@
     <mat-icon (click)="onShoppingCartClicked()" class="shopping-icon">shopping_cart</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>
-
+<br>
+<br>
+<div class="buttons">
+  <button mat-stroked-button color="primary">Weiter Shoppen</button>
+</div>
 <div class="container">
-  <div class="content" *ngFor="let product of splicedData">
+  <div class="leftCon">
+  <div *ngFor="let product of splicedData">
     <mat-card class="product-card">
       <mat-card-header>
         <mat-card-title>{{product.name}}</mat-card-title>
-        <mat-card-subtitle>Subtitle</mat-card-subtitle>
       </mat-card-header>
-      <img matCardImage src="https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+      <img matCardImage src="{{product.image}}">
       <mat-card-content>
-        <p>
-          {{product.description}}
-          <br>
-          <br>
-          <br>
-          <br>
-        </p>
-        <p>
-          {{product.unitPrice}}
-        </p>
-      </mat-card-content>
+        {{product.description}}<br>
 
-      <mat-card-footer>
+      </mat-card-content>
+      <mat-card-actions align="start">
+        <button mat-stroked-button color="primary">Aus dem Warenkorb entfernen</button>
+
+      </mat-card-actions>
+      <mat-card-footer class="product-card-footer">
+        {{product.unitPrice}}€
       </mat-card-footer>
     </mat-card>
-    <mat-card-actions class="buttonProduct" align="start">
-      <button mat-flat-button color="primary">Weiter Shoppen</button>
-      <button (click)="onBackClicked()" mat-flat-button color="primary">Delete</button>
-    </mat-card-actions>
+  </div>
+</div>
+  <div class="rightCon">
+    <p>asd</p>
   </div>
 </div>
