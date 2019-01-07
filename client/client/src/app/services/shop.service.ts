@@ -12,7 +12,7 @@ export class ShopService {
 
   async getAllProducts() {
     const result = await this.httpClient.get<any>(`${this.baseUrl}/get`).toPromise();
-    return result.data;
+    return result.products;
   }
 
   async getProduct(id: string) {
