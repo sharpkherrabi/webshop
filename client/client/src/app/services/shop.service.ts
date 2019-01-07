@@ -17,7 +17,7 @@ export class ShopService {
 
   async getProduct(id: string) {
     const result = await this.httpClient.get<any>(`${this.baseUrl}/get/${id}`).toPromise();
-    return result.data;
+    return result.products;
   }
 
   async updateProduct(id: string, product: Product) {
