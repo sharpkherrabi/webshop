@@ -13,20 +13,20 @@
   </mat-form-field>
 
 <div class="container">
+
     <div *ngFor="let product of splicedData">
       <mat-card class="product-card">
+
           <mat-card-header>
               <mat-card-title>{{product.name}}</mat-card-title>
-              <mat-card-subtitle>Verfügbar: {{product.quantity}}</mat-card-subtitle>
+
           </mat-card-header>
           <img matCardImage src="{{product.image}}">
-          <mat-card-content>
-              {{product.description}}<br>
-
-          </mat-card-content>
           <mat-card-actions align="start">
-              <button mat-stroked-button color="primary">In den Einkaufswagen</button>
-
+            <button (click)="viewProduct()" mat-stroked-button color="primary">Produkt näher ansehen</button>
+            <br>
+            <br>
+            <button mat-stroked-button color="primary">In den Einkaufswagen</button>
           </mat-card-actions>
           <mat-card-footer class="product-card-footer">
             {{product.unitPrice/100 | currency:'EUR':'symbol'}}

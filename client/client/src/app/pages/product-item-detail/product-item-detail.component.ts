@@ -9,29 +9,29 @@ import {Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./product-item-detail.component.css']
 })
 export class ProductItemDetailComponent implements OnInit {
-  products: Product[] = [];
+  products: Product;
   splicedData: Product[] = [];
   length = 100;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
 
-  constructor(private shopService: ShopService, private router: Router) { }
+  constructor(private shopService: ShopService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // for develop
-    const p1: Product = {
-      name: '1',
-      description: 'texttexttext',
-      quantity: 10,
-      unitPrice: 9999,
-      mass: 50,
-      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
-
-    this.products = [p1];
-    this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
-
+    this.route.paramMap.subscribe((params) => {
+      const entryId = params.get('id');
+      if (entryId === 'new') {
+        //this.mode = 'new';
+        this.products = new Product();
+      } else {
+        this.shopService.getProduct(entryId).then((product) => {
+          this.products = product;
+        });
+      }
+    });
   }
+
   onBackClicked() {
     this.router.navigate(['/products']);
   }
