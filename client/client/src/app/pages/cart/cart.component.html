@@ -1,3 +1,47 @@
-<p>
-  cart works!
-</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Webshop 1:1000000</span>
+    <span class="spacer"></span>
+    <mat-icon (click)="onShoppingCartClicked()" class="shopping-icon">shopping_cart</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br>
+<br>
+<div class="buttons">
+  <button mat-stroked-button color="primary">Weiter Shoppen</button>
+</div>
+<div class="container">
+  <div class="leftCon">
+  <div *ngFor="let product of splicedData">
+    <mat-card class="product-card">
+      <mat-card-header>
+        <mat-card-title>{{product.name}}</mat-card-title>
+      </mat-card-header>
+      <img matCardImage src="{{product.image}}">
+      <mat-card-content>
+        {{product.description}}<br>
+
+      </mat-card-content>
+      <mat-card-actions align="start">
+        <button mat-stroked-button color="primary">Aus dem Warenkorb entfernen</button>
+
+      </mat-card-actions>
+      <mat-card-footer class="product-card-footer">
+        {{product.unitPrice}}€
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+  <div class="rightCon">
+    <p>Summe:</p>
+    <div>
+      {{product.unitPrice}}€
+    </div>
+
+    <div class="buttons">
+      <button mat-stroked-button color="primary">Zur Kasse gehen</button>
+    </div>
+
+  </div>
+</div>

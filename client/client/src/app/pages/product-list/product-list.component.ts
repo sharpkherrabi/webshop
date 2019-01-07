@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
     // for develop
      const p1: Product = {
       name: '1',
-      description: 'texttexttext',
+      description: 'texttxtxt',
       quantity: 10,
       unitPrice: 9999,
       mass: 50,
@@ -135,5 +135,8 @@ export class ProductListComponent implements OnInit {
 
   viewProduct() {
     this.router.navigate(['/productdetail']);
+  }
+  onShoppingCartClicked() {
+    this.router.navigate(['/shoppingcart']);
   }
 }
