@@ -52,12 +52,12 @@ export class ProductListComponent implements OnInit {
     this.splicedData = this.products.slice(offset).slice(0, event.pageSize);
   }
 
-  /**
+
   viewProduct() {
     this.router.navigate(['/productdetail']);
   }
   onShoppingCartClicked() {
     this.router.navigate(['/shoppingcart']);
   }
-   */
+
 }
