@@ -9,8 +9,7 @@ import {Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./product-item-detail.component.css']
 })
 export class ProductItemDetailComponent implements OnInit {
-  products: Product;
-  splicedData: Product[] = [];
+  product: Product;
   length = 100;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
@@ -26,7 +25,7 @@ export class ProductItemDetailComponent implements OnInit {
         this.products = new Product();
       } else {
         this.shopService.getProduct(entryId).then((product) => {
-          this.products = product;
+          this.product = product;
         });
       }
     });
