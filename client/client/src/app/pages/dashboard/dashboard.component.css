@@ -30,12 +30,12 @@
 }
 
 
-@media (min-width: 701px) {
+@media (min-width: 501px) {
 
   .buttons {
     display: flex;
     flex-direction: row;
-    flex: wrap;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
     margin: 2ex;
@@ -46,7 +46,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .functions {
@@ -65,22 +65,22 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 500px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2ex;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    flex: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 2ex;
   }
 
   .functions {
@@ -94,7 +94,6 @@
   .searchBar {
     margin-left: 2ex;
     margin-right: 2ex;
-    margin-top: 0ex;
     width: 100%;
   }
 }
