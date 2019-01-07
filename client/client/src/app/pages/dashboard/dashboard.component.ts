@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ShopService } from '../../services/shop.service';
-import { Product } from '../../models/product';
+import {Component, OnInit} from '@angular/core';
+import {ShopService} from '../../services/shop.service';
+import {Product} from '../../models/product';
 import {Router} from '@angular/router';
 import {Order} from "../../models/order";
 
@@ -26,16 +26,16 @@ export class DashboardComponent implements OnInit {
   orderPageSizeOptions: number[] = [5, 10, 25, 100];
 
 
-
-  constructor(private shopService: ShopService, private router: Router) { }
+  constructor(private shopService: ShopService, private router: Router) {
+  }
 
   ngOnInit() {
     // get all products from db
     this.shopService.getAllProducts().then((products) => {
       this.products = products;
-      if(this.products != null) {
-      this.productPageLength = this.products.length;
-      this.splicedDataProducts = this.products.slice(((0 + 1) - 1) * this.productPageSize).slice(0, this.productPageSize);
+      if (this.products != null) {
+        this.productPageLength = this.products.length;
+        this.splicedDataProducts = this.products.slice(((0 + 1) - 1) * this.productPageSize).slice(0, this.productPageSize);
       } else {
         console.log("Couldn't get products!");
       }
