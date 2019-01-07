@@ -13,16 +13,16 @@ export class DashboardComponent implements OnInit {
 
   products: Product[] = [];
   splicedDataProducts: Product[] = []; // data to show on one page
-  // MatPaginator Inputs
+  // MatPaginator Inputs for Products
   productPageLength = 100;
   productPageSize = 10;
   productPageSizeOptions: number[] = [5, 10, 25, 100];
 
   orders: Order[] = [];
   splicedDataOrders: Order[] = [];
-  // MatPaginator Inputs
+  // MatPaginator Inputs for Orders
   orderPageLength = 100;
-  orderPageSize = 10;
+  orderPageSize = 5;
   orderPageSizeOptions: number[] = [5, 10, 25, 100];
 
 
