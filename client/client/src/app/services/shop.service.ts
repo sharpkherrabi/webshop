@@ -10,15 +10,29 @@ export class ShopService {
 
   constructor(private httpClient: HttpClient) { }
 
-  async getAllItems() {
-    const result = await this.httpClient.get<any>(this.baseUrl).toPromise();
+  async getAllProducts() {
+    const result = await this.httpClient.get<any>(`${this.baseUrl}/get`).toPromise();
     return result.data;
   }
 
-  async getSingleItem(id: string) {
-    const result = await this.httpClient.get<any>(`${this.baseUrl}/${id}`).toPromise();
+  async getProduct(id: string) {
+    const result = await this.httpClient.get<any>(`${this.baseUrl}/get/${id}`).toPromise();
     return result.data;
   }
 
+  async updateProduct(id: string, product: Product) {
+    const result = await this.httpClient.put<any>(`${this.baseUrl}/update/${id}`, product).toPromise();
+    return result.data;
+  }
+
+  async deleteProduct(id: string) {
+    const result = await this.httpClient.delete<any>(`${this.baseUrl}/delete/${id}`).toPromise();
+    return result;
+  }
+
+  async createProduct(product: Product) {
+    const result = await this.httpClient.post<any>(`${this.baseUrl}/create`, product).toPromise();
+    return result.data;
+  }
 
 }
