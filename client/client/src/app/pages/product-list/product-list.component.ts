@@ -23,16 +23,22 @@ export class ProductListComponent implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent;
 
-  constructor(private shopService: ShopService, private router: Router, private route: ActivatedRoute) {
+  constructor(private shopService: ShopService, private router: Router) {
     this.length = 0;
     this.pageSize = 10;
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      const entryId = params.get('entryId');
-      
-    }
+    // get all products from db
+    this.shopService.getAllProducts().then((products) => {
+      this.products = products;
+      if(this.products != null) {
+        this.length = this.products.length;
+        this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
+      } else {
+        console.log("Couldn't get products!");
+      }
+    });
   }
 
   // set how many items are shown on the page
@@ -46,12 +52,10 @@ export class ProductListComponent implements OnInit {
     this.splicedData = this.products.slice(offset).slice(0, event.pageSize);
   }
 
-
+  /**
   viewProduct() {
-//if clicked on specific id is missing
     this.router.navigate(['/productdetail']);
   }
-  /**
   onShoppingCartClicked() {
     this.router.navigate(['/shoppingcart']);
   }
