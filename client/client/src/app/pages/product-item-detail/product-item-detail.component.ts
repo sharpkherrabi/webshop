@@ -19,16 +19,18 @@ export class ProductItemDetailComponent implements OnInit {
   constructor(private shopService: ShopService, private router: Router) { }
 
   ngOnInit() {
-    // for develop
-    const p1: Product = {
-      name: '1',
-      description: 'texttexttext',
-      quantity: 10,
-      unitPrice: 9999,
-      mass: 50,
-      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'};
 
-    this.products = [p1];
+    this.shopService.getProduct('id').then((products) => {
+      console.log(products);
+      this.products = products;
+      if(this.products != null) {
+        this.length = this.products.length;
+        this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
+      } else {
+        console.log("Couldn't get products!");
+      }
+    });
+
     this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
 
   }
