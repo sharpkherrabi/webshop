@@ -11,6 +11,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatProgressBarModule,
         MatChipsModule,
         MatIconModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatMenuModule,
+        MatTabsModule
     ],
     exports: [
         MatButtonModule,
@@ -40,7 +44,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatProgressBarModule,
         MatChipsModule,
         MatIconModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatMenuModule,
+        MatTabsModule
     ],
 })
 

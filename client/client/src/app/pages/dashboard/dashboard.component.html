@@ -3,15 +3,82 @@
     <mat-toolbar-row>
     <span>Webshop 1:1000000</span>
   <span class="spacer"></span>
-  <mat-icon class="shopping-icon">shopping_cart</mat-icon>
+
     </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-form-field class="searchBar" appearance="outline">
-    <input matInput placeholder="Search">
-  </mat-form-field>
+<mat-tab-group>
+    <mat-tab label="Produkte">
+      <div class="functions">
+        <div class="buttons">
+          <button mat-stroked-button color="primary">Produkt hinzufügen</button>
+        </div>
+          <mat-form-field class="searchBar" appearance="outline">
+              <mat-label>Suchen</mat-label>
+            <input matInput placeholder="Suchen">
+          </mat-form-field>
+      </div>
+          <div class="container">
+              <div *ngFor="let product of splicedDataProducts">
+                <mat-card class="product-card">
+                    <mat-card-header>
+                        <mat-card-title>{{product.name}}</mat-card-title>
+                        <mat-card-subtitle>Verfügbar: {{product.quantity}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img matCardImage src="{{product.image}}">
+                    <mat-card-content>
+                        {{product.description}}<br>
 
-<div class="buttons">
-   <button mat-stroked-button color="primary">Produkt hinzufügen</button>
-   <button mat-stroked-button color="primary">Produkt hinzufügen</button>
-</div>
+                    </mat-card-content>
+                    <mat-card-actions align="start">
+                        <button mat-stroked-button color="primary">Bearbeiten</button>
+
+                    </mat-card-actions>
+                    <mat-card-footer class="card-footer">
+                      {{product.unitPrice}}€
+                    </mat-card-footer>
+                </mat-card>
+              </div>
+          </div>
+          <mat-paginator [length]="productPageLength"
+                        [pageSize]="productPageSize"
+                        [pageSizeOptions]="productPageSizeOptions"
+                        (page)="pageChangeEventProduct($event)">
+          </mat-paginator>
+    </mat-tab>
+    <mat-tab label="Bestellungen">
+      <div class="functions">
+        <mat-form-field class="searchBar" appearance="outline">
+            <mat-label>Suchen</mat-label>
+            <input matInput placeholder="Suchen">
+          </mat-form-field>
+      </div>
+          <div class="container">
+              <div *ngFor="let order of splicedDataOrders">
+                <mat-card class="order-card">
+                    <mat-card-header>
+                        <mat-card-title>Bestellung</mat-card-title>
+                        <mat-card-subtitle>{{order}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img matCardImage src="">
+                    <mat-card-content>
+                        description<br>
+
+                    </mat-card-content>
+                    <mat-card-actions align="start">
+                        <button mat-stroked-button color="primary">Bearbeiten</button>
+
+                    </mat-card-actions>
+                    <mat-card-footer class="card-footer">
+                      Bestellung Footer
+                    </mat-card-footer>
+                </mat-card>
+              </div>
+          </div>
+          <mat-paginator [length]="orderPageLength"
+                        [pageSize]="orderPageSize"
+                        [pageSizeOptions]="orderPageSizeOptions"
+                        (page)="pageChangeEventOrder($event)">
+          </mat-paginator>
+    </mat-tab>
+  </mat-tab-group>
