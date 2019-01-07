@@ -17,12 +17,12 @@ export class ShopService {
 
   async getProduct(id: string) {
     const result = await this.httpClient.get<any>(`${this.baseUrl}/get/${id}`).toPromise();
-    return result.data;
+    return result.products;
   }
 
   async updateProduct(id: string, product: Product) {
     const result = await this.httpClient.put<any>(`${this.baseUrl}/update/${id}`, product).toPromise();
-    return result.data;
+    return result.products;
   }
 
   async deleteProduct(id: string) {
@@ -32,7 +32,7 @@ export class ShopService {
 
   async createProduct(product: Product) {
     const result = await this.httpClient.post<any>(`${this.baseUrl}/create`, product).toPromise();
-    return result.data;
+    return result.products;
   }
 
 }
