@@ -54,10 +54,9 @@ export class ProductListComponent implements OnInit {
 
 
   viewProduct(_id: string) {
-    this.router.navigate(['/productdetail'],{ queryParams: { string: _id} });
+    this.router.navigate(['/productdetail'],{ queryParams: {_id} });
   }
   onShoppingCartClicked() {
     this.router.navigate(['/shoppingcart']);
   }
-
 }
