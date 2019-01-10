@@ -22,7 +22,7 @@ export class ProductItemDetailComponent implements OnInit {
       const entryId = params.get('id');
       if (entryId === 'new') {
         //this.mode = 'new';
-        this.products = new Product();
+        this.product = new Product();
       } else {
         this.shopService.getProduct(entryId).then((product) => {
           this.product = product;
