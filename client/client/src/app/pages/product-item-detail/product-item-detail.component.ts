@@ -9,7 +9,7 @@ import {Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./product-item-detail.component.css']
 })
 export class ProductItemDetailComponent implements OnInit {
-  product: Product;
+  products: Product;
   length = 100;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
@@ -18,14 +18,14 @@ export class ProductItemDetailComponent implements OnInit {
   constructor(private shopService: ShopService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      const entryId = params.get('id');
+    this.route.queryParams.subscribe((params) => {
+	  const entryId = params['productId'];
       if (entryId === 'new') {
         //this.mode = 'new';
-        this.product = new Product();
+        this.products = new Product();
       } else {
         this.shopService.getProduct(entryId).then((product) => {
-          this.product = product;
+          this.products = product;
         });
       }
     });
