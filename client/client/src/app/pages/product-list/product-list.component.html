@@ -24,8 +24,11 @@
           <img matCardImage src="{{product.image}}">
           <mat-card-actions align="start">
 
-
+            <div *ngFor="let product of splicedData" [routerLink]="['/productdetail', product.id]">
+              {{ product.name }}
+            </div >
             <button (click)="viewProduct(product._id)" mat-stroked-button color="primary">Produkt näher ansehen</button>
+
             <br>
             <br>
             <button mat-stroked-button color="primary">In den Einkaufswagen</button>
