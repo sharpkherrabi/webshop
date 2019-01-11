@@ -34,4 +34,9 @@ export class ProductItemDetailComponent implements OnInit {
   onBackClicked() {
     this.router.navigate(['/products']);
   }
+
+
+  onShoppingCartClicked() {
+    this.router.navigate(['/shoppingcart']);
+  }
 }

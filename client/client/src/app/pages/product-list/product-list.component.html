@@ -31,7 +31,7 @@
             <button mat-stroked-button color="primary">In den Einkaufswagen</button>
           </mat-card-actions>
           <mat-card-footer class="product-card-footer">
-            {{product.unitPrice/100 | currency:'EUR':'symbol'}}
+            Preis: {{product.unitPrice/100 | currency:'EUR':'symbol'}}
           </mat-card-footer>
       </mat-card>
     </div>
