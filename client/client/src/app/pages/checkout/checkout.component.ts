@@ -39,11 +39,55 @@ export class CheckoutComponent implements OnInit {
 
     };
 
+    const p1: Product = {
+      name: '1',
+      description: 'texttexttext',
+      quantity: 10,
+      unitPrice: 9999,
+      mass: 50,
+      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
 
-    this.products = [cart];
+    };
+    const p4: Product = {
+      name: '1',
+      description: 'texttexttext',
+      quantity: 10,
+      unitPrice: 9999,
+      mass: 50,
+      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+
+    };
+    const p3: Product = {
+      name: '1',
+      description: 'asd',
+      quantity: 10,
+      unitPrice: 9999,
+      mass: 50,
+      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+
+    };
+    const p6: Product = {
+      name: '1',
+      description: 'texttexttext',
+      quantity: 10,
+      unitPrice: 9999,
+      mass: 50,
+      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+
+    };
+    const p5: Product = {
+      name: '1',
+      description: 'texttexttext',
+      quantity: 10,
+      unitPrice: 9999,
+      mass: 50,
+      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+
+    };
+
+    this.products = [p1,cart,p3,p4,p5,p6];
     this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
   }
-
 
 
 }
