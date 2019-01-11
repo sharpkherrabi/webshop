@@ -13,6 +13,7 @@ import { LocalStorageService} from "../../services/local-storage.service";
 export class CartComponent implements OnInit {
 
   cart: Product[];
+  cartCount: number;
 
   constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) { }
 
@@ -20,6 +21,7 @@ export class CartComponent implements OnInit {
 
     this.localStorageService.getLocalStorage().then((products) => {
       this.cart = products;
+      this.cartCount = products.length;
     });
   }
 
@@ -27,13 +29,16 @@ export class CartComponent implements OnInit {
       for(let i=0;i<this.cart.length;i++) {
           if(this.cart[i]._id === product._id){
               this.cart.splice(i,1);
+              break;
           }
       }
       this.localStorageService.storeProductsToStorage(this.cart);
+      this.cartCount -= 1;
   }
 
   removeAllProducts() {
     this.localStorageService.deleteLocalStorage();
+    this.cartCount = 0;
   }
 
 }

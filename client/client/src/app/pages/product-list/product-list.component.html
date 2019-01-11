@@ -3,7 +3,7 @@
     <mat-toolbar-row>
     <span>Webshop 1:1000000</span>
   <span class="spacer"></span>
-  <mat-icon (click)="onShoppingCartClicked()" class="shopping-icon">shopping_cart</mat-icon>
+  <mat-icon matBadge="{{cartCount}}" matBadgePosition="before" matBadgeColor="accent" (click)="onShoppingCartClicked()" class="shopping-icon">shopping_cart</mat-icon>
     </mat-toolbar-row>
 </mat-toolbar>
 

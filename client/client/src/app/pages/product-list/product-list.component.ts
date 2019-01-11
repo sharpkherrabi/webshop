@@ -23,6 +23,9 @@ export class ProductListComponent implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent;
 
+  //cart
+  cartCount: number;
+
   constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) {
     this.length = 0;
     this.pageSize = 10;
@@ -39,6 +42,11 @@ export class ProductListComponent implements OnInit {
         console.log("Couldn't get products!");
       }
     });
+
+    this.localStorageService.getLocalStorage().then((products) => {
+      this.cartCount = products.length;
+    });
+
   }
 
   // set how many items are shown on the page
@@ -54,6 +62,7 @@ export class ProductListComponent implements OnInit {
 
   addProductToCart(p1: Product) {
     this.localStorageService.storeOneToStorage(p1);
+    this.cartCount += 1;
   }
 
 
