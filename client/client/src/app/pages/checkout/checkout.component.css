@@ -11,8 +11,11 @@
   float:right;
 }
 .container{
+  width: 50%;
+  flex-direction: column;
+  float: right;
   display: flex;
-
+  justify-content: end;
 }
 
 .product-card {
