@@ -1,22 +1,19 @@
 import {Product} from "./product";
 
 export class Order {
+
+  //Person
   firstname: string;
   lastname: string;
   email: string;
   phoneNumber: string;
-  //billingAdress:
-  billingStreet: string;
-  billingCity: string;
-  billingState: string; // or province
-  billingPostalCode: number;
-  billingCountry: string;
-  //shippingAdress:
-  shippingStreet: string;
-  shippingCity: string;
-  shippingState: string; // or province
-  shippingPostalCode: number;
-  shippingCountry: string;
+
+  //Adress:
+  street: string;
+  city: string;
+  state: string; // or province
+  postalCode: number;
+  country: string;
 
   products: Product[];
 
