@@ -3,7 +3,7 @@ import { Product } from './../../models/product';
 import { Component, OnInit } from '@angular/core';
 import {PageEvent} from '@angular/material';
 import {Router, ActivatedRoute} from '@angular/router';
-
+import { LocalStorageService} from "../../services/local-storage.service";
 
 @Component({
   selector: 'app-product-list',
@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent;
 
-  constructor(private shopService: ShopService, private router: Router) {
+  constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) {
     this.length = 0;
     this.pageSize = 10;
   }
@@ -50,6 +50,10 @@ export class ProductListComponent implements OnInit {
   pageChangeEvent(event) {
     const offset = ((event.pageIndex + 1) - 1) * event.pageSize;
     this.splicedData = this.products.slice(offset).slice(0, event.pageSize);
+  }
+
+  addProductToCart(p1: Product) {
+    this.localStorageService.storeOneToStorage(p1);
   }
 
   /**

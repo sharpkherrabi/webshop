@@ -21,8 +21,8 @@ export class CartComponent implements OnInit {
     this.localStorageService.getLocalStorage().then((products) => {
       this.cart = products;
     });
-    /** for develop
-
+    //for develop
+    /**
     const cart: Product = {
       name: '2',
       description: 'test',
@@ -81,11 +81,8 @@ export class CartComponent implements OnInit {
 
     this.cart = [p1,cart,p3,p4,p5,p6];
 
-    //this.localStorageService.storeOneToStorage(p1);
-    //this.localStorageService.deleteLocalStorage();
-    */
+    this.localStorageService.storeOneToStorage(p1);
+    this.localStorageService.deleteLocalStorage();*/
+
   }
-
-
-
 }
