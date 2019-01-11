@@ -21,68 +21,19 @@ export class CartComponent implements OnInit {
     this.localStorageService.getLocalStorage().then((products) => {
       this.cart = products;
     });
-    //for develop
-    /**
-    const cart: Product = {
-      name: '2',
-      description: 'test',
-      quantity: 10,
-      unitPrice: 123,
-      mass: 50,
-      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-
-    };
-
-    const p1: Product = {
-      name: '1',
-      description: 'texttexttext',
-      quantity: 10,
-      unitPrice: 9999,
-      mass: 50,
-      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-
-    };
-    const p4: Product = {
-      name: '1',
-      description: 'texttexttext',
-      quantity: 10,
-      unitPrice: 9999,
-      mass: 50,
-      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-
-    };
-    const p3: Product = {
-      name: '1',
-      description: 'asd',
-      quantity: 10,
-      unitPrice: 9999,
-      mass: 50,
-      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-
-    };
-    const p6: Product = {
-      name: '1',
-      description: 'texttexttext',
-      quantity: 10,
-      unitPrice: 9999,
-      mass: 50,
-      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-
-    };
-    const p5: Product = {
-      name: '1',
-      description: 'texttexttext',
-      quantity: 10,
-      unitPrice: 9999,
-      mass: 50,
-      image: 'https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-
-    };
-
-    this.cart = [p1,cart,p3,p4,p5,p6];
-
-    this.localStorageService.storeOneToStorage(p1);
-    this.localStorageService.deleteLocalStorage();*/
-
   }
+
+  removeProdcut(product: Product){
+      for(let i=0;i<this.cart.length;i++) {
+          if(this.cart[i]._id === product._id){
+              this.cart.splice(i,1);
+          }
+      }
+      this.localStorageService.storeProductsToStorage(this.cart);
+  }
+
+  removeAllProducts() {
+    this.localStorageService.deleteLocalStorage();
+  }
+
 }

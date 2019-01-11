@@ -56,12 +56,11 @@ export class ProductListComponent implements OnInit {
     this.localStorageService.storeOneToStorage(p1);
   }
 
-  /**
+
   viewProduct() {
     this.router.navigate(['/productdetail']);
   }
   onShoppingCartClicked() {
     this.router.navigate(['/shoppingcart']);
   }
-   */
 }

@@ -17,14 +17,14 @@ export class LocalStorageService {
 
     //get array from local storage
     this.localCart = this.storage.get(STORAGE_KEY) || [];
-
     // push new task to array
     this.localCart.push(product);
-
     // insert updated array to local storage
     this.storage.set(STORAGE_KEY, this.localCart);
+  }
 
-    console.log(this.storage.get(STORAGE_KEY) || 'LocaL storage is empty');
+  public storeProductsToStorage(products: Product[]) {
+    this.storage.set(STORAGE_KEY, products);
   }
 
   async getLocalStorage() {
