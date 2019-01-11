@@ -16,8 +16,8 @@ export class ProductListComponent implements OnInit {
   splicedData: Product[] = []; // data to show on one page
 
   // MatPaginator Inputs
-  length: Number;
-  pageSize: Number;
+  length: number;
+  pageSize: number;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
   // MatPaginator Output

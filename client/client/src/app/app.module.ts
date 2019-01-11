@@ -16,6 +16,7 @@ import { ProductItemDetailComponent } from './pages/product-item-detail/product-
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { ProductListItemComponent } from './pages/product-list/components/product-list-item/product-list-item.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     ProductItemDetailComponent,
     ProductListComponent,
     ProductListItemComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddProductComponent
   ],
   imports: [
     AppRoutingModule,

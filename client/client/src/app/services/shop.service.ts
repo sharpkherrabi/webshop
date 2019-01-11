@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ShopService {
-  productBaseUrl = 'http://localhost:3000/product';
+  productBaseUrl = 'http://192.168.99.100:3000/product';
+  //productBaseUrl = 'http://localhost:3000/product';
   orderBaseUrl = 'http://localhost:3000/order';
 
   constructor(private httpClient: HttpClient) { }
