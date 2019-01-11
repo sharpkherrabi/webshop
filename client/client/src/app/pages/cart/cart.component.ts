@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from "../../models/product";
 import {ShopService} from "../../services/shop.service";
 import {Router} from "@angular/router";
-
+import { LocalStorageService} from "../../services/local-storage.service";
 
 
 @Component({
@@ -12,25 +12,16 @@ import {Router} from "@angular/router";
 })
 export class CartComponent implements OnInit {
 
+  cart: Product[];
 
-  products: Product[] = [];
-  splicedDataProducts: Product[] = []; // data to show on one page
-  splicedData: Product[] = [];
-
-
-
-
-  // MatPaginator Inputs
-  pageSize = 10;
-
-  constructor(private shopService: ShopService, private router: Router) {
-
-
-
-  }
+  constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
-    // for develop
+
+    this.localStorageService.getLocalStorage().then((products) => {
+      this.cart = products;
+    });
+    /** for develop
 
     const cart: Product = {
       name: '2',
@@ -88,8 +79,11 @@ export class CartComponent implements OnInit {
 
     };
 
-    this.products = [p1,cart,p3,p4,p5,p6];
-    this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
+    this.cart = [p1,cart,p3,p4,p5,p6];
+
+    //this.localStorageService.storeOneToStorage(p1);
+    //this.localStorageService.deleteLocalStorage();
+    */
   }
 
 
