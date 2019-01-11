@@ -9,7 +9,7 @@ import {Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./product-item-detail.component.css']
 })
 export class ProductItemDetailComponent implements OnInit {
-  products: Product;
+  product: Product;
   length = 100;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
@@ -19,13 +19,13 @@ export class ProductItemDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-	  const entryId = params['productId'];
-      if (entryId === 'new') {
+	  const id = params['productId'];
+      if (id === 'new') {
         //this.mode = 'new';
-        this.products = new Product();
+        this.product = new Product();
       } else {
-        this.shopService.getProduct(entryId).then((product) => {
-          this.products = product;
+        this.shopService.getProduct(id).then((products) => {
+          this.product = products[0];
         });
       }
     });
