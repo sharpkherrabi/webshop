@@ -46,7 +46,6 @@ export class ProductListComponent implements OnInit {
     this.localStorageService.getLocalStorage().then((products) => {
       this.cartCount = products.length;
     });
-
   }
 
   // set how many items are shown on the page
