@@ -16,11 +16,11 @@
   <div *ngFor="let product of cart">
     <mat-card class="product-card">
       <mat-card-header>
-        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-title>{{product?.name}}</mat-card-title>
       </mat-card-header>
-      <img matCardImage src="{{product.image}}">
+      <img matCardImage src="{{product?.image}}" alt="Produkt Bild">
       <mat-card-content>
-        {{product.description}}<br>
+        {{product?.description}}<br>
 
       </mat-card-content>
       <mat-card-actions align="start">
@@ -28,7 +28,7 @@
 
       </mat-card-actions>
       <mat-card-footer class="product-card-footer">
-        Preis: {{product.unitPrice/100 | currency:'EUR':'symbol'}}
+        Preis: {{product?.unitPrice/100 | currency:'EUR':'symbol'}}
       </mat-card-footer>
     </mat-card>
   </div>
@@ -36,7 +36,7 @@
   <div class="rightCon">
     <p>Summe:</p>
     <div>
-      {{product.unitPrice}}€
+      {{product?.unitPrice}}€
     </div>
 
     <div class="buttons">

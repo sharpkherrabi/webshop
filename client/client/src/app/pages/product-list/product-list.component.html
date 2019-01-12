@@ -18,18 +18,18 @@
       <mat-card class="product-card">
 
           <mat-card-header>
-            <mat-card-title>{{product.name}}</mat-card-title>
-            <mat-card-subtitle>Verfügbar: {{product.quantity}}</mat-card-subtitle>
+            <mat-card-title>{{product?.name}}</mat-card-title>
+            <mat-card-subtitle>Verfügbar: {{product?.quantity}}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <img matCardImage src="{{product.image}}" alt="Picture">
+            <img matCardImage src="{{product?.image}}" alt="Picture">
           </mat-card-content>
           <mat-card-actions align="start" class="actions">
-            <button (click)=" viewProduct(product._id)" mat-stroked-button color="primary" class="button">Produkt näher ansehen</button>
+            <button (click)=" viewProduct(product?._id)" mat-stroked-button color="primary" class="button">Produkt näher ansehen</button>
             <button (click)="addProductToCart(product)" mat-stroked-button color="primary" class="button">In den Einkaufswagen</button>
           </mat-card-actions>
           <mat-card-footer class="product-card-footer">
-            Preis: {{product.unitPrice/100 | currency:'EUR':'symbol'}}
+            Preis: {{product?.unitPrice/100 | currency:'EUR':'symbol'}}
           </mat-card-footer>
       </mat-card>
     </div>
