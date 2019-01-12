@@ -26,7 +26,6 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
     OrderComponent,
     ProductItemDetailComponent,
     ProductListComponent,
-    ProductListItemComponent,
     CheckoutComponent,
     AddProductComponent
   ],
