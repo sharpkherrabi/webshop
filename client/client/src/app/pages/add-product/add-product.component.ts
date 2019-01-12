@@ -12,11 +12,13 @@ import _ from 'lodash';
 export class AddProductComponent implements OnInit {
 
   private product: Product;
+  private showPic: boolean;
 
   constructor(private shopService: ShopService, private router: Router) { }
 
   ngOnInit() {
     this.product = new Product;
+    this.showPic = false;
   }
 
   async onSaveClicked() {
@@ -32,6 +34,12 @@ export class AddProductComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+  setShowPic(value){
+    if(value.length > 0)
+      this.showPic = true;
+    else
+      this.showPic = false;
   }
 
 }

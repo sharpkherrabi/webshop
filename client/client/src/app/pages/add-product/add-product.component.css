@@ -32,6 +32,26 @@
       margin-left: 35%;
   }
 
+  .img {
+    width: 100%;
+    height: 100%;
+    min-width: 200px;
+    min-height: auto;
+  }
+
+  .image{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+  }
+  .image-card {
+    max-width: 30%;
+    max-height: auto;
+    border-radius: 1rem;
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+  }
+
   @media screen and (max-width:550px){
     .button{
       flex-direction: column;
@@ -47,6 +67,12 @@
       margin-top: 1em;
       flex-grow: 1;
       margin-left: 0%;
+    }
+
+    .image-card {
+      max-width: 50%;
+      max-height: auto;
+      margin-bottom: 2%;
     }
     
   }
