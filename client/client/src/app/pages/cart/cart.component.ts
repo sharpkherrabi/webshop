@@ -13,7 +13,7 @@ import { LocalStorageService} from "../../services/local-storage.service";
 export class CartComponent implements OnInit {
 
   cart: Product[];
-  cartCount: number;
+  cartCount: number = 0;
 
   constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) { }
 
