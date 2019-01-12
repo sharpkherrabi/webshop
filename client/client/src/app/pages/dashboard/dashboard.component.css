@@ -50,6 +50,10 @@ mat-form-field{
   width:100%;
 }
 
+#deleteBtn{
+  margin-left: 2%;
+}
+
 @media (min-width: 501px) {
   .buttons {
     display: flex;
