@@ -16,6 +16,7 @@ import { OrderComponent } from './pages/order/order.component';
 import { ProductItemDetailComponent } from './pages/product-item-detail/product-item-detail.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { UpdateProductComponent } from './pages/update-product/update-product.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
     ProductItemDetailComponent,
     ProductListComponent,
     CheckoutComponent,
-    AddProductComponent
+    AddProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     AppRoutingModule,

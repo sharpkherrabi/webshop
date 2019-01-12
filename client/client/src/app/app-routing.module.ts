@@ -4,7 +4,9 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductItemDetailComponent} from './pages/product-item-detail/product-item-detail.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CartComponent } from "./pages/cart/cart.component";
+import {UpdateProductComponent} from "./pages/update-product/update-product.component";
 import {AddProductComponent} from "./pages/add-product/add-product.component";
+
 
 const routes: Routes = [
   {
@@ -31,6 +33,10 @@ const routes: Routes = [
   {
     path: 'addproduct',
     component: AddProductComponent
+  },
+  {
+    path: 'dashboard/:id',
+    component: UpdateProductComponent
   }
 ];
 
