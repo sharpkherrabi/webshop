@@ -8,6 +8,7 @@ import { MaterialModule } from './material';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { StorageServiceModule } from 'angular-webstorage-service';
 
 import { CartComponent } from './pages/cart/cart.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -37,7 +38,8 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
