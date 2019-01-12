@@ -11,14 +11,14 @@
 <div class="update-product-input">
 
   <mat-form-field>
-    <input matInput required name="name" minlength="5" [(ngModel)]="product.name" placeholder="Name" #prodName="ngModel">
+    <input matInput required name="name" minlength="5" [ngModel]="product?.name" (ngModelChange)="product.name = $event" #prodName="ngModel">
     <div class="alert alert-danger" *ngIf="prodName.touched && !prodName.valid">
       <div *ngIf="prodName.errors?.required"></div>
       <div *ngIf="prodName.errors?.minlength">Name soll mindestens 5 Symbole enthalten</div>
     </div>
   </mat-form-field>
   <mat-form-field>
-    <textarea matInput required name="description" rows="4" minlength="25" [(ngModel)]="product.description"
+    <textarea matInput required name="description" rows="4" minlength="25" [ngModel]="product?.description" (ngModelChange)="product.description = $event"
       placeholder="Beschreibung" #prodDescription="ngModel"></textarea>
     <div class="alert alert-danger" *ngIf="prodDescription.touched && !prodDescription.valid">
       <div *ngIf="prodDescription.errors?.required"></div>
@@ -27,25 +27,25 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="number" required name="quantity" min=0 [(ngModel)]="product.quantity" placeholder="Anzahl"
+    <input matInput type="number" required name="quantity" min=0 [ngModel]="product?.quantity" (ngModelChange)="product.quantity = $event" placeholder="Anzahl"
       #prodQuantity="ngModel">
     <div class="alert alert-danger" *ngIf="prodQuantity.touched && !prodQuantity.valid"></div>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="number" required name="unitPrice" min=0 [(ngModel)]="product.unitPrice" placeholder="Preis in cents bitte"
+    <input matInput type="number" required name="unitPrice" min=0 [ngModel]="product?.unitPrice" (ngModelChange)="product.unitPrice = $event" placeholder="Preis in cents bitte"
       #prodPrice="ngModel">
     <div class="alert alert-danger" *ngIf="prodPrice.touched && !prodPrice.valid"></div>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput required name="image" [(ngModel)]="product.image" placeholder="Bild URL" #prodImage="ngModel">
+    <input matInput required name="image" [ngModel]="product?.image" (ngModelChange)="product.image = $event" placeholder="Bild URL" #prodImage="ngModel">
     <div *ngIf="prodImage.errors?.required"></div>
   </mat-form-field>
 
   <div class="image">
   <mat-card class="image-card">
-    <img matCardImage src="{{product.image}}">
+    <img matCardImage src="{{product?.image}}">
   </mat-card>
   </div>
 
