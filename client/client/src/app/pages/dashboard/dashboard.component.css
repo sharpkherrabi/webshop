@@ -29,6 +29,27 @@
   min-height: auto;
 }
 
+.add-product {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-product > * {
+  width: 100%;
+}
+
+.new-product-input{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.product-field{
+  width:100%;
+}
+mat-form-field{
+  width:100%;
+}
+
 @media (min-width: 501px) {
   .buttons {
     display: flex;

@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatTabsModule} from '@angular/material/tabs';
         MatIconModule,
         MatPaginatorModule,
         MatMenuModule,
-        MatTabsModule
+        MatTabsModule,
+        MatBadgeModule
     ],
     exports: [
         MatButtonModule,
@@ -46,7 +48,8 @@ import {MatTabsModule} from '@angular/material/tabs';
         MatIconModule,
         MatPaginatorModule,
         MatMenuModule,
-        MatTabsModule
+        MatTabsModule,
+        MatBadgeModule
     ],
 })
 

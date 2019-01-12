@@ -3,7 +3,7 @@ import { Product } from './../../models/product';
 import { Component, OnInit } from '@angular/core';
 import {PageEvent} from '@angular/material';
 import {Router, ActivatedRoute} from '@angular/router';
-
+import { LocalStorageService} from "../../services/local-storage.service";
 
 @Component({
   selector: 'app-product-list',
@@ -23,7 +23,10 @@ export class ProductListComponent implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent;
 
-  constructor(private shopService: ShopService, private router: Router) {
+  //cart
+  cartCount: number;
+
+  constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) {
     this.length = 0;
     this.pageSize = 10;
   }
@@ -38,6 +41,10 @@ export class ProductListComponent implements OnInit {
       } else {
         console.log("Couldn't get products!");
       }
+    });
+
+    this.localStorageService.getLocalStorage().then((products) => {
+      this.cartCount = products.length;
     });
   }
 
