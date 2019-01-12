@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from '../../models/product';
 import {ShopService} from '../../services/shop.service';
 import {Router, ActivatedRoute} from '@angular/router';
+import { LocalStorageService} from "../../services/local-storage.service";
 
 @Component({
   selector: 'app-product-item-detail',
@@ -14,8 +15,14 @@ export class ProductItemDetailComponent implements OnInit {
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
+  //cart
+  cartCount: number;
 
-  constructor(private shopService: ShopService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private shopService: ShopService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
@@ -29,6 +36,15 @@ export class ProductItemDetailComponent implements OnInit {
         });
       }
     });
+
+    this.localStorageService.getLocalStorage().then((products) => {
+      this.cartCount = products.length;
+    });
+  }
+
+  addProductToCart(p1: Product) {
+    this.localStorageService.storeOneToStorage(p1);
+    this.cartCount += 1;
   }
 
   onBackClicked() {
