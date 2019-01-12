@@ -66,7 +66,13 @@ export class DashboardComponent implements OnInit {
     try {
       console.log('to delete id: ' + id);
       await this.shopService.deleteProduct(id);
-      this.router.navigate(['/dashboard']);
+      for(let i=0;i<this.products.length;i++) {
+        if(this.products[i]._id === id){
+            this.products.splice(i,1);
+            break;
+        }
+        this.ngOnInit();
+    }
     } catch (error) {
       console.log('Delete error in DetailComponenet' + error);
     }
