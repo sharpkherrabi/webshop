@@ -28,7 +28,7 @@
 
       </mat-card-actions>
       <mat-card-footer class="product-card-footer">
-        {{product.unitPrice}}€
+        Preis: {{product.unitPrice/100 | currency:'EUR':'symbol'}}
       </mat-card-footer>
     </mat-card>
   </div>
