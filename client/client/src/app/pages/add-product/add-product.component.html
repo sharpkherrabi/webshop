@@ -35,9 +35,16 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput required name="image" [(ngModel)]="product.image" placeholder="Bild URL" #prodImage="ngModel">
-    <div *ngIf="prodImage.errors?.required"></div>
+    <input matInput (input)="setShowPic($event.target.value)" required name="image" [(ngModel)]="product.image" placeholder="Bild URL" #prodImage="ngModel">
+    <div *ngIf="prodImage.errors?.required"></div>    
   </mat-form-field>
+
+  <div class="image" *ngIf="showPic">
+    <mat-card class="image-card">
+      <img matCardImage src="{{product.image}}">
+    </mat-card>
+  </div>
+
   <div class="button">
   <button id="add" (click)="onSaveClicked()" mat-stroked-button color="primary">Produkt hinzufügen</button>
   <button id="back" routerLink="/dashboard" mat-stroked-button color="primary">Zurück</button>
