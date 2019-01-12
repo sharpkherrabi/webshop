@@ -25,8 +25,10 @@ export class DashboardComponent implements OnInit {
   orderPageSize = 5;
   orderPageSizeOptions: number[] = [5, 10, 25, 100];
 
+  addNew: boolean = false;
 
   constructor(private shopService: ShopService, private router: Router) {
+    this.addNew = false;
   }
 
   ngOnInit() {
@@ -67,4 +69,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/editproduct']);
   }
 
+  setAddNew(){
+    this.addNew = !this.addNew;
+  }
 }

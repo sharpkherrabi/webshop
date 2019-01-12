@@ -1,0 +1,53 @@
+.spacer {
+    flex: 1 1 auto;
+    width: 2%;
+  }
+
+  .new-product-input{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%
+  }
+
+  mat-form-field{
+      width: 70%;
+      align-content: center;
+  }
+
+  .button{
+    width: 70%;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+  }
+  #add{
+    flex-grow: 2;
+  }
+  #back{
+    margin-left: 1em;
+    flex-grow: 1;
+  }
+
+  h2{
+      margin-left: 35%;
+  }
+
+  @media screen and (max-width:550px){
+    .button{
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #add{
+      flex-grow: 1;
+      width: 100%;
+    }
+    #back{
+      width: 100%;
+      margin-top: 1em;
+      flex-grow: 1;
+      margin-left: 0%;
+    }
+    
+  }
+
