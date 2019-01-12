@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
     });
   }
 
-  removeProdcut(product: Product){
+  removeProduct(product: Product){
       for(let i=0;i<this.cart.length;i++) {
           if(this.cart[i]._id === product._id){
               this.cart.splice(i,1);
