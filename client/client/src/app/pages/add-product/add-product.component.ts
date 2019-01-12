@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopService } from '../../services/shop.service';
 import { Product } from '../../models/product';
 import { Router } from '@angular/router';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-add-product',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddProductComponent implements OnInit {
 
-  product: Product;
+  private product: Product;
 
   constructor(private shopService: ShopService, private router: Router) { }
 
@@ -20,11 +21,11 @@ export class AddProductComponent implements OnInit {
 
   async onSaveClicked() {
     try {
-      const res = await this.shopService.createProduct(this.product);
+      await this.shopService.createProduct(this.product);
       console.log(this.product.name);
       /** Go to all products list only of all data was provided */
-      if (res.status === 201) {
-        console.log(res.error.message);
+      if (this.product.name.length > 0 && this.product.unitPrice > 0 && this.product.description.length > 100 && this.product.quantity > 0) {
+        console.log(this.product.name + " " + this.product.description);
         this.router.navigate(['/dashboard']);
 
       }
