@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit {
   pageEvent: PageEvent;
 
   //cart
-  cartCount: number;
+  cartCount: number = 0;
 
   constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) {
     this.length = 0;

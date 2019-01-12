@@ -16,7 +16,7 @@ export class ProductItemDetailComponent implements OnInit {
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
   //cart
-  cartCount: number;
+  cartCount: number=0;
 
   constructor(
     private shopService: ShopService,
