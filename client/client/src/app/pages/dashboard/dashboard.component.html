@@ -35,7 +35,7 @@
           </mat-card-content>
           <mat-card-actions align="start">
             <button routerLink="/dashboard/{{product._id}}" mat-stroked-button color="primary">Bearbeiten</button>
-
+            <button (click)="onDeleteClicked(product._id)" id="deleteBtn" mat-stroked-button color="primary">Löschen</button>
           </mat-card-actions>
           <mat-card-footer class="card-footer">
             {{product.unitPrice/100 | currency:'EUR':'symbol'}}
