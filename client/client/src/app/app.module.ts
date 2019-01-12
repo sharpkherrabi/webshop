@@ -15,7 +15,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OrderComponent } from './pages/order/order.component';
 import { ProductItemDetailComponent } from './pages/product-item-detail/product-item-detail.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
-import { ProductListItemComponent } from './pages/product-list/components/product-list-item/product-list-item.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 

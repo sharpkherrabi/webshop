@@ -59,16 +59,12 @@ export class ProductListComponent implements OnInit {
     this.splicedData = this.products.slice(offset).slice(0, event.pageSize);
   }
 
-  addProductToCart(p1: Product) {
-    this.localStorageService.storeOneToStorage(p1);
-    this.cartCount += 1;
-  }
 
-
-  viewProduct() {
-    this.router.navigate(['/productdetail']);
+  viewProduct(_id: string) {
+    this.router.navigate(['/productdetail'],{ queryParams: { productId: _id} });
   }
   onShoppingCartClicked() {
     this.router.navigate(['/shoppingcart']);
   }
+
 }

@@ -3,33 +3,31 @@
   <mat-toolbar-row>
     <span>Webshop 1:1000000</span>
     <span class="spacer"></span>
-    <mat-icon class="shopping-icon">shopping_cart</mat-icon>
+    <mat-icon (click)="onShoppingCartClicked()" class="shopping-icon">shopping_cart</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>
 
 
 <div class="container">
-  <div class="content" *ngFor="let product of splicedData">
     <mat-card class="product-card">
       <mat-card-header>
         <mat-card-title>{{product.name}}</mat-card-title>
         <mat-card-subtitle>Verfügbar: {{product.quantity}}</mat-card-subtitle>
       </mat-card-header>
-      <img matCardImage src="{{product.image}}">
-
       <mat-card-content>
-        <p>
+        <img matCardImage src="{{product.image}}">
+
           {{product.description}}
 
-        </p>
-      </mat-card-content>
-      <mat-card-actions align="start">
-        <button mat-flat-button color="primary">Add to Cart</button>
-        <button (click)="onBackClicked()" mat-flat-button color="primary">Back</button>
-      </mat-card-actions>
-      <mat-card-footer>
 
-      </mat-card-footer>
+      </mat-card-content>
+        <mat-card-actions align="start" class="actions">
+          <button mat-stroked-button color="primary">In den Einkaufswagen</button>
+          <button (click)="onBackClicked()" mat-stroked-button color="primary">Zurück</button>
+        </mat-card-actions>
+
+        <mat-card-footer class="product-card-footer">
+          Preis: {{product.unitPrice/100 | currency:'EUR':'symbol'}}
+        </mat-card-footer>
     </mat-card>
-  </div>
 </div>
