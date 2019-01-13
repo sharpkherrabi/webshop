@@ -41,4 +41,9 @@ export class CartComponent implements OnInit {
     this.cartCount = 0;
   }
 
+  goToPayment() {
+    this.router.navigate(['/checkout']);
+  }
+
+
 }
