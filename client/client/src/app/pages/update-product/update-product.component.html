@@ -1,0 +1,56 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Webshop 1:1000000</span>
+    <span class="spacer"></span>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<h2>Produkt aktualisieren</h2>
+
+<div class="update-product-input">
+
+  <mat-form-field>
+    <input matInput required name="name" minlength="5" [ngModel]="product?.name" (ngModelChange)="product.name = $event" #prodName="ngModel">
+    <div class="alert alert-danger" *ngIf="prodName.touched && !prodName.valid">
+      <div *ngIf="prodName.errors?.required"></div>
+      <div *ngIf="prodName.errors?.minlength">Name soll mindestens 5 Symbole enthalten</div>
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput required name="description" rows="4" minlength="25" [ngModel]="product?.description" (ngModelChange)="product.description = $event"
+      placeholder="Beschreibung" #prodDescription="ngModel"></textarea>
+    <div class="alert alert-danger" *ngIf="prodDescription.touched && !prodDescription.valid">
+      <div *ngIf="prodDescription.errors?.required"></div>
+      <div *ngIf="prodDescription.errors?.minlength">Beschreibeung soll mindestens 25 Symbole enthalten</div>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" required name="quantity" min=0 [ngModel]="product?.quantity" (ngModelChange)="product.quantity = $event" placeholder="Anzahl"
+      #prodQuantity="ngModel">
+    <div class="alert alert-danger" *ngIf="prodQuantity.touched && !prodQuantity.valid"></div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" required name="unitPrice" min=0 [ngModel]="product?.unitPrice" (ngModelChange)="product.unitPrice = $event" placeholder="Preis in cents bitte"
+      #prodPrice="ngModel">
+    <div class="alert alert-danger" *ngIf="prodPrice.touched && !prodPrice.valid"></div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput required name="image" [ngModel]="product?.image" (ngModelChange)="product.image = $event" placeholder="Bild URL" #prodImage="ngModel">
+    <div *ngIf="prodImage.errors?.required"></div>
+  </mat-form-field>
+
+  <div class="image">
+  <mat-card class="image-card">
+    <img matCardImage src="{{product?.image}}">
+  </mat-card>
+  </div>
+
+  <div class="button">
+    <button id="add" (click)="onSaveClicked()" mat-stroked-button color="primary">Aktualisieren</button>
+    <button id="back" routerLink="/dashboard" mat-stroked-button color="primary">Verlassen</button>
+  </div>
+</div>

@@ -11,8 +11,11 @@
   <mat-tab label="Produkte">
     <div class="functions">
       <div class="buttons">
-        <button mat-stroked-button color="primary">Produkt hinzufügen</button>
+        <button routerLink="/addproduct" mat-stroked-button color="primary">Produkt hinzufügen</button>
+      
+        
       </div>
+   
       <mat-form-field class="searchBar" appearance="outline">
         <mat-label>Suchen</mat-label>
         <input matInput placeholder="Suchen">
@@ -22,20 +25,20 @@
       <div *ngFor="let product of splicedDataProducts">
         <mat-card class="product-card">
           <mat-card-header>
-            <mat-card-title>{{product.name}}</mat-card-title>
-            <mat-card-subtitle>Verfügbar: {{product.quantity}}</mat-card-subtitle>
+            <mat-card-title>{{product?.name}}</mat-card-title>
+            <mat-card-subtitle>Verfügbar: {{product?.quantity}}</mat-card-subtitle>
           </mat-card-header>
-          <img matCardImage src="{{product.image}}">
+          <img matCardImage src="{{product?.image}}" alt="Produkt Bild">
           <mat-card-content>
-            {{product.description}}<br>
+            {{product?.description}}<br>
 
           </mat-card-content>
           <mat-card-actions align="start">
-            <button mat-stroked-button color="primary">Bearbeiten</button>
-
+            <button routerLink="/dashboard/{{product?._id}}" mat-stroked-button color="primary">Bearbeiten</button>
+            <button (click)="onDeleteClicked(product?._id)" id="deleteBtn" mat-stroked-button color="primary">Löschen</button>
           </mat-card-actions>
           <mat-card-footer class="card-footer">
-            {{product.unitPrice/100 | currency:'EUR':'symbol'}}
+            {{product?.unitPrice/100 | currency:'EUR':'symbol'}}
           </mat-card-footer>
         </mat-card>
       </div>
@@ -60,7 +63,7 @@
             <mat-card-title>Bestellung</mat-card-title>
             <mat-card-subtitle>{{order}}</mat-card-subtitle>
           </mat-card-header>
-          <img matCardImage src="">
+          <img matCardImage src="" alt="">
           <mat-card-content>
             description<br>
 

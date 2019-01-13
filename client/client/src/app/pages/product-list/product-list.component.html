@@ -3,7 +3,7 @@
     <mat-toolbar-row>
     <span>Webshop 1:1000000</span>
   <span class="spacer"></span>
-  <mat-icon (click)="onShoppingCartClicked()" class="shopping-icon">shopping_cart</mat-icon>
+  <mat-icon matBadge="{{cartCount}}" matBadgePosition="before" matBadgeColor="accent" (click)="onShoppingCartClicked()" class="shopping-icon">shopping_cart</mat-icon>
     </mat-toolbar-row>
 </mat-toolbar>
 
@@ -18,20 +18,18 @@
       <mat-card class="product-card">
 
           <mat-card-header>
-              <mat-card-title>{{product.name}}</mat-card-title>
-
+            <mat-card-title>{{product?.name}}</mat-card-title>
+            <mat-card-subtitle>Verfügbar: {{product?.quantity}}</mat-card-subtitle>
           </mat-card-header>
-          <img matCardImage src="{{product.image}}">
-          <mat-card-actions align="start">
-
-            <button (click)=" viewProduct(product._id)" mat-stroked-button color="primary">Produkt näher ansehen</button>
-
-            <br>
-            <br>
-            <button mat-stroked-button color="primary">In den Einkaufswagen</button>
+          <mat-card-content>
+            <img matCardImage src="{{product?.image}}" alt="Picture">
+          </mat-card-content>
+          <mat-card-actions align="start" class="actions">
+            <button (click)=" viewProduct(product?._id)" mat-stroked-button color="primary" class="button">Produkt näher ansehen</button>
+            <button (click)="addProductToCart(product)" mat-stroked-button color="primary" class="button">In den Einkaufswagen</button>
           </mat-card-actions>
           <mat-card-footer class="product-card-footer">
-            Preis: {{product.unitPrice/100 | currency:'EUR':'symbol'}}
+            Preis: {{product?.unitPrice/100 | currency:'EUR':'symbol'}}
           </mat-card-footer>
       </mat-card>
     </div>

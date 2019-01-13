@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit {
   orderPageSize = 5;
   orderPageSizeOptions: number[] = [5, 10, 25, 100];
 
-
   constructor(private shopService: ShopService, private router: Router) {
   }
 
@@ -63,8 +62,19 @@ export class DashboardComponent implements OnInit {
     this.splicedDataOrders = this.orders.slice(offset).slice(0, event.pageSize);
   }
 
-  editProduct() {
-    this.router.navigate(['/editproduct']);
+  async onDeleteClicked(id) {
+    try {
+      console.log('to delete id: ' + id);
+      await this.shopService.deleteProduct(id);
+      for(let i=0;i<this.products.length;i++) {
+        if(this.products[i]._id === id){
+            this.products.splice(i,1);
+            break;
+        }
+        this.ngOnInit();
+    }
+    } catch (error) {
+      console.log('Delete error in DetailComponenet' + error);
+    }
   }
-
 }

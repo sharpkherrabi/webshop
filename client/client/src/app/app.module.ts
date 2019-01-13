@@ -8,6 +8,7 @@ import { MaterialModule } from './material';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { StorageServiceModule } from 'angular-webstorage-service';
 
 import { CartComponent } from './pages/cart/cart.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -15,6 +16,8 @@ import { OrderComponent } from './pages/order/order.component';
 import { ProductItemDetailComponent } from './pages/product-item-detail/product-item-detail.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { UpdateProductComponent } from './pages/update-product/update-product.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     OrderComponent,
     ProductItemDetailComponent,
     ProductListComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     AppRoutingModule,
@@ -33,7 +38,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
