@@ -59,13 +59,6 @@
     <div class="order-container">
       <div *ngFor="let order of splicedDataOrders">
         <mat-card class="order-card">
-          <!--
-          <mat-card-header>
-            <mat-card-title>{{order?.date | date : "d MMM, y HH:mm"}} an {{order?.orderer.firstname}} {{order?.orderer.lastname}}</mat-card-title>
-            <mat-card-subtitle>{{order}}</mat-card-subtitle>
-          </mat-card-header>
-          <img matCardImage src="" alt="">
-          -->
           <mat-card-content>
             <h2>{{order?.date | date : "d MMM, y HH:mm"}} an {{order?.orderer.firstname}} {{order?.orderer.lastname}}</h2>
             <h3>Adresse</h3> 
@@ -83,12 +76,6 @@
             {{order?.paymentMethod}}<br>
 
           </mat-card-content>
-          <!--
-          <mat-card-actions align="start">
-           <button mat-stroked-button color="primary">Bearbeiten</button>  
-
-          </mat-card-actions>
-          -->
           <mat-card-footer class="card-footer">
             Summe: {{order?.price/100 | currency:'EUR':'symbol'}}
           </mat-card-footer>
