@@ -34,11 +34,7 @@
   </div>
 </div>
   <div class="rightCon">
-    <p>Summe:</p>
-    <div>
-      {{product?.unitPrice}}€
-    </div>
-
+    <p>Summe: {{sum/100 | currency:'EUR':'symbol'}}</p>
     <div class="buttons">
       <button (click)=" goToPayment()" mat-stroked-button color="primary">Zur Kasse gehen</button>
     </div>
