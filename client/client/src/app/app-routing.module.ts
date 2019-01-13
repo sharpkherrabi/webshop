@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CartComponent } from "./pages/cart/cart.component";
 import {UpdateProductComponent} from "./pages/update-product/update-product.component";
 import {AddProductComponent} from "./pages/add-product/add-product.component";
+import { CheckoutComponent} from "./pages/checkout/checkout.component";
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'dashboard/:id',
     component: UpdateProductComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
   }
 ];
 
