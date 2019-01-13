@@ -39,6 +39,15 @@ export class DashboardComponent implements OnInit {
         console.log("Couldn't get products!");
       }
     });
+    this.shopService.getAllOrders().then((orders) => {
+      this.orders = orders;
+      if (this.orders != null) {
+        this.orderPageLength = this.orders.length;
+        this.splicedDataOrders = this.orders.slice(((0 + 1) - 1) * this.orderPageSize).slice(0, this.orderPageSize);
+      } else {
+        console.log("Couldn't get orders!");
+      }
+    });
   }
 
   // set how many items are shown on the page
