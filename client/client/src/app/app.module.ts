@@ -18,6 +18,7 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { UpdateProductComponent } from './pages/update-product/update-product.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
     ProductListComponent,
     CheckoutComponent,
     AddProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    SearchComponent
   ],
   imports: [
     AppRoutingModule,

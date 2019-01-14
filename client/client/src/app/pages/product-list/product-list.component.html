@@ -7,10 +7,7 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-form-field class="searchBar" appearance="outline">
-    <mat-label>Suchen</mat-label>
-    <input matInput placeholder="Search">
-  </mat-form-field>
+<app-search (broadcastSearchResult)='onResult($event)'></app-search>
 
 <div class="container">
 

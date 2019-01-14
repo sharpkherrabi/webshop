@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ShopService } from '../../services/shop.service';
 import { Product } from '../../models/product';
 import { Router } from '@angular/router';
-import _ from 'lodash';
 
 @Component({
   selector: 'app-add-product',
