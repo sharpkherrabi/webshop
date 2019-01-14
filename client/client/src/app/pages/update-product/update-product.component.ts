@@ -3,7 +3,6 @@ import { ShopService } from '../../services/shop.service';
 import { Product } from '../../models/product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductItemDetailComponent } from '../product-item-detail/product-item-detail.component';
-import _ from 'lodash';
 
 
 @Component({
