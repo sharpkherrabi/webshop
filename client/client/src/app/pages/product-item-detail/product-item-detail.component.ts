@@ -31,8 +31,8 @@ export class ProductItemDetailComponent implements OnInit {
 				//this.mode = 'new';
 				this.product = new Product();
 			} else {
-				this.shopService.getProduct(id).then((products) => {
-					this.product = products[0];
+				this.shopService.getProduct(id).then((result) => {
+					this.product = result.products[0];
 				});
 			}
 		});
