@@ -45,10 +45,4 @@ export class CartComponent implements OnInit {
     this.localStorageService.deleteLocalStorage();
     this.cartCount = 0;
   }
-
-  goToPayment() {
-    this.router.navigate(['/checkout']);
-  }
-
-
 }
