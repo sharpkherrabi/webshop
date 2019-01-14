@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Product} from "../../models/product";
+import {ShopService} from "../../services/shop.service";
+import {Router} from "@angular/router";
+import {LocalStorageService} from "../../services/local-storage.service";
+import { Order, Orderer, Address, ProductInfo } from '../../models/order';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  cart: Product[];
+  cartCount: number = 0;
+  products: Product[] = [];
+  splicedDataProducts: Product[] = []; // data to show on one page
+  splicedData: Product[] = [];
+
+  order: Order;
+  //productInfo: ProductInfo[] = [];
+  // MatPaginator Inputs
+  pageSize = 10;
+
+  constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) {
+
+
+  }
 
   ngOnInit() {
+    this.order = new Order;
+    this.order.orderer = new Orderer;
+    this.order.address = new Address;
+
+    this.localStorageService.getLocalStorage().then((products) => {
+      this.cart = products;
+      this.cartCount = products.length;
+    });
+  }
+
+  onPayClicked(){
+    console.log("City: "+this.order.address.city);
+    console.log("Street: "+this.order.address.street);
+    console.log("HouseNr: "+this.order.address.houseNr);
+    console.log("ZIP: "+this.order.address.zip);
+    console.log("email: "+this.order.email);
+    console.log("Firstname: "+this.order.orderer.firstname);
+    console.log("Lastname: "+this.order.orderer.lastname);
   }
 
 }
