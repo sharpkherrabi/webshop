@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/checkout
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar color="primary">
   <mat-toolbar-row>
@@ -35,6 +39,7 @@
 <div class="example-container">
   <h4>Persönliche Angaben: </h4>
   <mat-form-field>
+<<<<<<< HEAD
     <input matInput placeholder="Vorname:">
   </mat-form-field>
   <mat-form-field>
@@ -45,11 +50,21 @@
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Tel.Nummer: ">
+=======
+    <input matInput required name="firstname" placeholder="Vorname:" [(ngModel)]="order?.orderer.firstname">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput required name="lastname" placeholder="Nachname:" [(ngModel)]="order?.orderer.lastname">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput required name="email" placeholder="E-Mail:" [(ngModel)]="order.email">
+>>>>>>> feature/checkout
   </mat-form-field>
 
   <br>
   <h4>Adressangaben: </h4>
   <mat-form-field>
+<<<<<<< HEAD
     <input matInput placeholder="Straße und Hausnummer: ">
   </mat-form-field>
   <mat-form-field>
@@ -60,11 +75,31 @@
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Land/Region: ">
+=======
+    <input matInput required name="street" placeholder="Straße: " [(ngModel)]="order?.address.street">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput required name="houseNr" type="number" placeholder="HausNr: " [(ngModel)]="order?.address.houseNr"> 
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput required name="city" placeholder="Stadt: " [(ngModel)]="order?.address.city">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput required name="zip" placeholder="Postleitzahl: " [(ngModel)]="order?.address.zip">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput required name="country" placeholder="Land/Region: " [(ngModel)]="order?.address.country">
+>>>>>>> feature/checkout
   </mat-form-field>
   <br>
   <br>
   <div class="buttons">
+<<<<<<< HEAD
     <button mat-stroked-button color="primary">Jetzt Bezahlen</button>
+=======
+    <button mat-stroked-button (click)="onPayClicked()" color="primary">Jetzt Bezahlen</button>
+>>>>>>> feature/checkout
   </div>
   <br>
 </div>

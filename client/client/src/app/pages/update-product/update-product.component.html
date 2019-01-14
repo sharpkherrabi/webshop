@@ -11,7 +11,7 @@
 <div class="update-product-input">
 
   <mat-form-field>
-    <input matInput required name="name" minlength="5" [ngModel]="product?.name" (ngModelChange)="product.name = $event" #prodName="ngModel">
+    <input matInput required name="name" minlength="5" [ngModel]="product?.name" (ngModelChange)="product.name = $event" #prodName="ngModel" placeholder="Name">
     <div class="alert alert-danger" *ngIf="prodName.touched && !prodName.valid">
       <div *ngIf="prodName.errors?.required"></div>
       <div *ngIf="prodName.errors?.minlength">Name soll mindestens 5 Symbole enthalten</div>
