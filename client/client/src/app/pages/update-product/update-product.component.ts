@@ -30,7 +30,7 @@ export class UpdateProductComponent implements OnInit {
 
   async onSaveClicked(){    
     try {
-      if(this.product.name.length > 0 && this.product.unitPrice > 0 && this.product.description.length > 100 && this.product.quantity > 0){
+      if(this.product.name.length > 4 && this.product.unitPrice > 0 && this.product.description.length > 24 && this.product.quantity > 1){
         await this.shopService.updateProduct(this.id, this.product);
       
         this.router.navigate(['/dashboard']);

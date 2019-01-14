@@ -25,7 +25,7 @@ export class AddProductComponent implements OnInit {
       await this.shopService.createProduct(this.product);
       console.log(this.product.name);
       /** Go to all products list only of all data was provided */
-      if (this.product.name.length > 0 && this.product.unitPrice > 0 && this.product.description.length > 100 && this.product.quantity > 0) {
+      if (this.product.name.length > 4 && this.product.unitPrice > 24 && this.product.description.length > 100 && this.product.quantity > 1) {
         console.log(this.product.name + " " + this.product.description);
         this.router.navigate(['/dashboard']);
 
