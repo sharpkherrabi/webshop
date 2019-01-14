@@ -38,7 +38,6 @@ export class CheckoutComponent implements OnInit {
 		this.order = new Order;
 		this.order.orderer = new Orderer;
 		this.order.address = new Address;
-		this.productInfo = new ProductInfo;
 		this.prods = [];
 		this.order.product = [];
 
@@ -53,6 +52,7 @@ export class CheckoutComponent implements OnInit {
 	//Here fill order with products info, post order and send to paypal route
 	async onPayClicked() {
 		for (let i = 0; i < this.cart.length; i++) {
+			this.productInfo = new ProductInfo;
 			this.productInfo.id = this.cart[i]._id;
 			console.log("test" + this.productInfo.id);
 
@@ -61,10 +61,13 @@ export class CheckoutComponent implements OnInit {
 		}
 
 		try {
-			await this.shopService.createOrder(this.order);
-			console.log(this.order.product);
-
-			this.router.navigate(['/dashboard']);
+			const result = await this.shopService.createOrder(this.order);
+			const orderId = result.order._id;
+			
+			this.localStorageService.deleteLocalStorage();
+			// redirect to paypal
+			const paymentObj = await this.shopService.sendPaypalPaymentRequest(orderId);
+			window.location.href = paymentObj.redirectURL;
 
 
 		} catch (error) {
