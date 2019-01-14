@@ -15,48 +15,48 @@ export class ShopService {
 
 	constructor(private httpClient: HttpClient) { }
 
-	async getAllProducts() {
-		const result = await this.httpClient.get<any>(`${this.productBaseUrl}/get`).toPromise();
-		return result.products;
-	}
-
-	async getProduct(id: string) {
-		const result = await this.httpClient.get<any>(`${this.productBaseUrl}/get/${id}`).toPromise();
-		return result.products;
-	}
-
-	async updateProduct(id: string, product: Product) {
-		const result = await this.httpClient.put<any>(`${this.productBaseUrl}/update/${id}`, product).toPromise();
-		return result.products;
-	}
-
-	async deleteProduct(id: string) {
-		const result = await this.httpClient.delete<any>(`${this.productBaseUrl}/delete/${id}`).toPromise();
+	getAllProducts() {
+		const result = this.httpClient.get<any>(`${this.productBaseUrl}/get`).toPromise();
 		return result;
 	}
 
-	async createProduct(product: Product) {
-		const result = await this.httpClient.post<any>(`${this.productBaseUrl}/create`, product).toPromise();
-		return result.products;
+	getProduct(id: string) {
+		const result = this.httpClient.get<any>(`${this.productBaseUrl}/get/${id}`).toPromise();
+		return result;
 	}
 
-	async getAllOrders() {
-		const result = await this.httpClient.get<any>(`${this.orderBaseUrl}/get`).toPromise();
-		return result.orders;
+	updateProduct(id: string, product: Product) {
+		const result = this.httpClient.put<any>(`${this.productBaseUrl}/update/${id}`, product).toPromise();
+		return result;
 	}
 
-	async getOrder(id: string) {
-		const result = await this.httpClient.get<any>(`${this.orderBaseUrl}/get/${id}`).toPromise();
-		return result.orders;
+	deleteProduct(id: string) {
+		const result = this.httpClient.delete<any>(`${this.productBaseUrl}/delete/${id}`).toPromise();
+		return result;
 	}
 
-	async updateOrder(id: string, order: Order) {
-		const result = await this.httpClient.put<any>(`${this.orderBaseUrl}/update/${id}`, order).toPromise();
-		return result.orders;
+	createProduct(product: Product) {
+		const result = this.httpClient.post<any>(`${this.productBaseUrl}/create`, product).toPromise();
+		return result;
 	}
 
-	async deleteOrder(id: string) {
-		const result = await this.httpClient.delete<any>(`${this.orderBaseUrl}/delete/${id}`).toPromise();
+	getAllOrders() {
+		const result = this.httpClient.get<any>(`${this.orderBaseUrl}/get`).toPromise();
+		return result;
+	}
+
+	getOrder(id: string) {
+		const result = this.httpClient.get<any>(`${this.orderBaseUrl}/get/${id}`).toPromise();
+		return result;
+	}
+
+	updateOrder(id: string, order: Order) {
+		const result = this.httpClient.put<any>(`${this.orderBaseUrl}/update/${id}`, order).toPromise();
+		return result;
+	}
+
+	deleteOrder(id: string) {
+		const result = this.httpClient.delete<any>(`${this.orderBaseUrl}/delete/${id}`).toPromise();
 		return result;
 	}
 
@@ -67,6 +67,10 @@ export class ShopService {
 
 	sendPaypalPaymentRequest(id: String) {
 		const result = this.httpClient.post<any>(`${this.paymentBaseUrl}`, { orderId: id }).toPromise();
+	}
+	// search in name and description
+	searchInNameAndDescription(query: String) {
+		const result = this.httpClient.get<any>(`${this.productBaseUrl}/search/?q=${query}`).toPromise();
 		return result;
 	}
 }

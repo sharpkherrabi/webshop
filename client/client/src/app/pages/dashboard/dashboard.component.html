@@ -12,14 +12,10 @@
     <div class="functions">
       <div class="buttons">
         <button routerLink="/addproduct" mat-stroked-button color="primary">Produkt hinzufügen</button>
-      
-        
       </div>
-   
-      <mat-form-field class="searchBar" appearance="outline">
-        <mat-label>Suchen</mat-label>
-        <input matInput placeholder="Suchen">
-      </mat-form-field>
+	  <div class="searchBar">
+		<app-search (broadcastSearchResult)='onResult($event)'></app-search>
+	  </div>
     </div>
     <div class="container">
       <div *ngFor="let product of splicedDataProducts">
