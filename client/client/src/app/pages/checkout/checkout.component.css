@@ -15,7 +15,7 @@
   flex-direction: column;
   float: right;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .product-card {

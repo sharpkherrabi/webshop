@@ -67,6 +67,7 @@ export class ShopService {
 
 	sendPaypalPaymentRequest(id: String) {
 		const result = this.httpClient.post<any>(`${this.paymentBaseUrl}`, { orderId: id }).toPromise();
+		return result;
 	}
 	// search in name and description
 	searchInNameAndDescription(query: String) {
