@@ -11,18 +11,16 @@
 
   <mat-form-field>
     <input matInput required name="name" minlength="5" [(ngModel)]="product.name" placeholder="Name" #prodName="ngModel">
-    <div class = "alert alert-danger" *ngIf="prodName.touched && !prodName.valid" >
-        <div *ngIf="prodName.errors?.required"></div>
-        <div *ngIf="prodName.errors?.minlength">Name soll mindestens 5 Symbole enthalten</div>
-  </div>
+    <div class = "alert alert-danger" *ngIf="prodName.touched && !prodName.valid" ></div>
   </mat-form-field>
+  <div *ngIf="prodName.errors?.required"></div>
+  <div *ngIf="prodName.errors?.minlength">Name soll mindestens 5 Symbole enthalten</div>
   <mat-form-field>
     <textarea matInput required name="description" rows="5" minlength="25" [(ngModel)]="product.description" placeholder="Beschreibung" #prodDescription="ngModel"></textarea>
-    <div class = "alert alert-danger" *ngIf="prodDescription.touched && !prodDescription.valid" >
-        <div *ngIf="prodDescription.errors?.required"></div>
-        <div *ngIf="prodDescription.errors?.minlength">Beschreibeung soll mindestens 25 Symbole enthalten</div>
-  </div>
+    <div class = "alert alert-danger" *ngIf="prodDescription.touched && !prodDescription.valid" ></div>
   </mat-form-field>
+  <div *ngIf="prodDescription.errors?.required"></div>
+  <div *ngIf="prodDescription.errors?.minlength">Beschreibeung soll mindestens 25 Symbole enthalten</div>
   
   <mat-form-field>
     <input matInput type="number" required name="quantity" min=0 [(ngModel)]="product.quantity" placeholder="Anzahl" #prodQuantity="ngModel">
