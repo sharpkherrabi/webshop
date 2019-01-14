@@ -78,6 +78,7 @@ export class ProductListComponent implements OnInit {
 
 	onResult(products: Product[]) {
 		this.splicedData = _.intersectionWith(this.productBackup, products, _.isEqual);
+		this.length = this.splicedData.length;
 	}
 
 }

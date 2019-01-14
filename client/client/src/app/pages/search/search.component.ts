@@ -7,7 +7,7 @@ import { ShopService } from './../../services/shop.service';
 	styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-	@Output() broadcaseSearchResult = new EventEmitter<Product[]>();
+	@Output() broadcastSearchResult = new EventEmitter<Product[]>();
 	constructor(private shopService: ShopService) { }
 
 	ngOnInit() {
@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
 	async searchInAll(query: String) {
 		let foundedResults = await this.shopService.searchInNameAndDescription(query);
 		if (foundedResults.status === 'OK') {
-			this.broadcaseSearchResult.emit(foundedResults.products);
+			this.broadcastSearchResult.emit(foundedResults.products);
 		}
 	}
 
