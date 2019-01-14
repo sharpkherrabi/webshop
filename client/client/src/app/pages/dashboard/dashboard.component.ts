@@ -32,8 +32,8 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit() {
 		// get all products from db
-		this.shopService.getAllProducts().then((products) => {
-			this.products = products;
+		this.shopService.getAllProducts().then((result) => {
+			this.products = result.products;
 			if (this.products != null) {
 				this.productPageLength = this.products.length;
 				this.splicedDataProducts = this.products.slice(((0 + 1) - 1) * this.productPageSize).slice(0, this.productPageSize);
@@ -42,8 +42,8 @@ export class DashboardComponent implements OnInit {
 				console.log("Couldn't get products!");
 			}
 		});
-		this.shopService.getAllOrders().then((orders) => {
-			this.orders = orders;
+		this.shopService.getAllOrders().then((result) => {
+			this.orders = result.orders;
 			if (this.orders != null) {
 				this.orderPageLength = this.orders.length;
 				this.splicedDataOrders = this.orders.slice(((0 + 1) - 1) * this.orderPageSize).slice(0, this.orderPageSize);

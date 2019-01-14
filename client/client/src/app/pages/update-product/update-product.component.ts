@@ -22,8 +22,8 @@ export class UpdateProductComponent implements OnInit {
 
   ngOnInit() {
     console.log("ID im ngOnInit: " + this.id);
-    this.shopService.getProduct(this.id).then((product)=>{
-      this.product = product[0];
+    this.shopService.getProduct(this.id).then((result)=>{
+      this.product = result.products[0];
       console.log("Product NAME im ngONINIT: " + this.product.name);
     });
   }
