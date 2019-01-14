@@ -46,10 +46,10 @@ export class ProductListComponent implements OnInit {
 				console.log("Couldn't get products!");
 			}
 		});
-
-		this.localStorageService.getLocalStorage().then((products) => {
-			this.cartCount = products.length;
-		});
+		if (this.localStorageService.isLocalStorageSet())
+			this.localStorageService.getLocalStorage().then((products) => {
+				this.cartCount = products.length;
+			});
 	}
 
 	// set how many items are shown on the page
