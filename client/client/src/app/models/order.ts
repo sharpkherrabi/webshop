@@ -16,6 +16,7 @@ export class Address{
   }
 }
 
+
 export class ProductInfo{
   id: string;
   quantity: number;
@@ -28,7 +29,7 @@ export class Order {
   orderer: Orderer;
   email: string;
   address: Address;
-  products: ProductInfo[];
+  product: ProductInfo[];
   date: Date;
   paymentMethod: string;
 

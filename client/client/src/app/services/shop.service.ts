@@ -11,6 +11,7 @@ export class ShopService {
 	//orderBaseUrl = 'http://192.168.99.100:3000/order';
 	productBaseUrl = 'http://localhost:3000/product';
 	orderBaseUrl = 'http://localhost:3000/order';
+	paymentBaseUrl = 'http://localhost:3000/checkout/paypal';
 
 	constructor(private httpClient: HttpClient) { }
 
@@ -64,6 +65,10 @@ export class ShopService {
 		return result;
 	}
 
+	sendPaypalPaymentRequest(id: String) {
+		const result = this.httpClient.post<any>(`${this.paymentBaseUrl}`, { orderId: id }).toPromise();
+		return result;
+	}
 	// search in name and description
 	searchInNameAndDescription(query: String) {
 		const result = this.httpClient.get<any>(`${this.productBaseUrl}/search/?q=${query}`).toPromise();
