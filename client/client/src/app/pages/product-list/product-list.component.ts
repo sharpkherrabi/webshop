@@ -36,8 +36,8 @@ export class ProductListComponent implements OnInit {
 
 	ngOnInit() {
 		// get all products from db
-		this.shopService.getAllProducts().then((products) => {
-			this.products = products;
+		this.shopService.getAllProducts().then((result) => {
+			this.products = result.products;
 			if (this.products != null) {
 				this.length = this.products.length;
 				this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
