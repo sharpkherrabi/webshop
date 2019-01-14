@@ -36,7 +36,6 @@ export class DashboardComponent implements OnInit {
         this.productPageLength = this.products.length;
         this.splicedDataProducts = this.products.slice(((0 + 1) - 1) * this.productPageSize).slice(0, this.productPageSize);
       } else {
-        console.log("Couldn't get products!");
       }
     });
     this.shopService.getAllOrders().then((orders) => {
@@ -45,7 +44,6 @@ export class DashboardComponent implements OnInit {
         this.orderPageLength = this.orders.length;
         this.splicedDataOrders = this.orders.slice(((0 + 1) - 1) * this.orderPageSize).slice(0, this.orderPageSize);
       } else {
-        console.log("Couldn't get orders!");
       }
     });
   }
@@ -73,7 +71,6 @@ export class DashboardComponent implements OnInit {
 
   async onDeleteClicked(id) {
     try {
-      console.log('to delete id: ' + id);
       await this.shopService.deleteProduct(id);
       for(let i=0;i<this.products.length;i++) {
         if(this.products[i]._id === id){
@@ -83,7 +80,6 @@ export class DashboardComponent implements OnInit {
         this.ngOnInit();
     }
     } catch (error) {
-      console.log('Delete error in DetailComponenet' + error);
     }
   }
 }

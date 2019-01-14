@@ -17,14 +17,11 @@ export class UpdateProductComponent implements OnInit {
   private updatedProduct: Product;
   constructor(private shopService: ShopService,private route: ActivatedRoute, private router: Router) { 
     this.route.params.subscribe( params => this.id = params.id);
-    console.log("ID im constuctor: " + this.id);
   }
 
   ngOnInit() {
-    console.log("ID im ngOnInit: " + this.id);
     this.shopService.getProduct(this.id).then((product)=>{
       this.product = product[0];
-      console.log("Product NAME im ngONINIT: " + this.product.name);
     });
   }
 
@@ -36,7 +33,6 @@ export class UpdateProductComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       }          
     } catch (error) {
-      console.log('Update error in DetailComponent'+ error);
     }
   }
 

@@ -39,7 +39,6 @@ export class ProductListComponent implements OnInit {
         this.length = this.products.length;
         this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
       } else {
-        console.log("Couldn't get products!");
       }
     });
 

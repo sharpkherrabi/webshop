@@ -23,15 +23,12 @@ export class AddProductComponent implements OnInit {
   async onSaveClicked() {
     try {
       await this.shopService.createProduct(this.product);
-      console.log(this.product.name);
       /** Go to all products list only of all data was provided */
       if (this.product.name.length > 4 && this.product.unitPrice > 0 && this.product.description.length > 24 && this.product.quantity > 1) {
-        console.log(this.product.name + " " + this.product.description);
         this.router.navigate(['/dashboard']);
 
       }
     } catch (error) {
-      console.log(error);
     }
   }
   setShowPic(value){

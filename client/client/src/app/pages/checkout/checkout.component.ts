@@ -54,7 +54,6 @@ export class CheckoutComponent implements OnInit {
 		for (let i = 0; i < this.cart.length; i++) {
 			this.productInfo = new ProductInfo;
 			this.productInfo.id = this.cart[i]._id;
-			console.log("test" + this.productInfo.id);
 
 			this.productInfo.quantity = 1;
 			this.order.product.push(this.productInfo);
@@ -71,15 +70,8 @@ export class CheckoutComponent implements OnInit {
 
 
 		} catch (error) {
-			console.log(error);
 		}
-		console.log("City: " + this.order.address.city);
-		console.log("Street: " + this.order.address.street);
-		console.log("HouseNr: " + this.order.address.houseNr);
-		console.log("ZIP: " + this.order.address.zip);
-		console.log("email: " + this.order.email);
-		console.log("Firstname: " + this.order.orderer.firstname);
-		console.log("Lastname: " + this.order.orderer.lastname);
+
 
 
 
