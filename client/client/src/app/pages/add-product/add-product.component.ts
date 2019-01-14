@@ -27,7 +27,6 @@ export class AddProductComponent implements OnInit {
 				const createdProduct = await this.shopService.createProduct(this.product);
 				if (_.includes(createdProduct.status, 'SUCCESSFULLY'))
 					this.router.navigate(['/dashboard']);
-				debugger;
 			}
 		} catch (error) {
 			console.log(error);
