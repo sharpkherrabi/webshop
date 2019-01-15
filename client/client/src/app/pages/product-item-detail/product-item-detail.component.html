@@ -22,7 +22,7 @@
 
       </mat-card-content>
         <mat-card-actions align="start" class="actions">
-          <button (click)="addProductToCart(product)" mat-stroked-button color="primary">In den Einkaufswagen</button>
+          <button *ngIf="product?.quantity>0" (click)="addProductToCart(product)" mat-stroked-button color="primary">In den Einkaufswagen</button>
           <button (click)="onBackClicked()" mat-stroked-button color="primary">Zurück</button>
         </mat-card-actions>
 
