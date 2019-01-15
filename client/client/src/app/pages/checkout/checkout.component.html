@@ -18,10 +18,7 @@
           {{product?.description}}<br>
 
         </mat-card-content>
-        <mat-card-actions align="start">
-          <button (click)="removeProduct(product)" mat-stroked-button color="primary">Aus dem Warenkorb entfernen</button>
 
-        </mat-card-actions>
         <mat-card-footer class="product-card-footer">
           Preis: {{product?.unitPrice/100 | currency:'EUR':'symbol'}}
         </mat-card-footer>
