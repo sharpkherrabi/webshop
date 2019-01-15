@@ -19,6 +19,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { UpdateProductComponent } from './pages/update-product/update-product.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { SearchComponent } from './pages/search/search.component';
+import { PaySuccessfulComponent } from './pages/checkout/pay-successful/pay-successful.component';
+import { PayFailComponent } from './pages/checkout/pay-fail/pay-fail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { SearchComponent } from './pages/search/search.component';
     CheckoutComponent,
     AddProductComponent,
     UpdateProductComponent,
-    SearchComponent
+    SearchComponent,
+    PaySuccessfulComponent,
+    PayFailComponent
   ],
   imports: [
     AppRoutingModule,

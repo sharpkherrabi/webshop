@@ -7,7 +7,8 @@ import { CartComponent } from "./pages/cart/cart.component";
 import {UpdateProductComponent} from "./pages/update-product/update-product.component";
 import {AddProductComponent} from "./pages/add-product/add-product.component";
 import { CheckoutComponent} from "./pages/checkout/checkout.component";
-
+import {PaySuccessfulComponent} from "./pages/checkout/pay-successful/pay-successful.component";
+import {PayFailComponent} from "./pages/checkout/pay-fail/pay-fail.component";
 
 const routes: Routes = [
   {
@@ -42,6 +43,14 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent
+  },
+  {
+    path: 'checkout/success',
+    component: PaySuccessfulComponent
+  },
+  {
+    path:'checkout/fail',
+    component: PayFailComponent
   }
 
 ];
