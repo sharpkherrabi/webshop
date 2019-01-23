@@ -5,6 +5,7 @@ import { PageEvent } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from "../../services/local-storage.service";
 import * as _ from 'lodash';
+import { AlertService } from "../../services/alert.service";
 
 @Component({
 	selector: 'app-product-list',
@@ -15,7 +16,6 @@ export class ProductListComponent implements OnInit {
 
 	products: Product[] = [];
 	splicedData: Product[] = []; // data to show on one page
-
 	// MatPaginator Inputs
 	length: number;
 	pageSize: number;
@@ -29,7 +29,7 @@ export class ProductListComponent implements OnInit {
 
 	// backup products
 	productBackup: Product[] = [];
-	constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) {
+	constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService, private alertService:AlertService) {
 		this.length = 0;
 		this.pageSize = 10;
 	}
@@ -67,6 +67,7 @@ export class ProductListComponent implements OnInit {
 	addProductToCart(p1: Product) {
 		this.localStorageService.storeOneToStorage(p1);
 		this.cartCount += 1;
+		this.alertService.success("Added to cart");
 	}
 
 	viewProduct(_id: string) {

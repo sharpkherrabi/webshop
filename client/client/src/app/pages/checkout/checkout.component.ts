@@ -4,7 +4,8 @@ import { ShopService } from "../../services/shop.service";
 import { Router } from "@angular/router";
 import { LocalStorageService } from "../../services/local-storage.service";
 import { Order, Orderer, Address, ProductInfo } from '../../models/order';
-
+import { AlertService } from '../../services/alert.service';
+import * as _ from 'lodash';
 
 @Component({
 	selector: 'app-checkout',
@@ -31,7 +32,7 @@ export class CheckoutComponent implements OnInit {
 	pageSize = 10;
 
 
-	constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService) {
+	constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService, private alertService: AlertService) {
 	}
 
 	ngOnInit() {
@@ -51,32 +52,32 @@ export class CheckoutComponent implements OnInit {
 
 	//Here fill order with products info, post order and send to paypal route
 	async onPayClicked() {
-		for (let i = 0; i < this.cart.length; i++) {
-			this.productInfo = new ProductInfo;
-			this.productInfo.id = this.cart[i]._id;
+		if (!_.isUndefined(this.order.address.city) && !_.isUndefined(this.order.address.country) && !_.isUndefined(this.order.address.houseNr)
+			&& !_.isUndefined(this.order.address.street) && !_.isUndefined(this.order.address.zip)) {
+			if (this.order.address.zip.length == 5) {
+				for (let i = 0; i < this.cart.length; i++) {
+					this.productInfo = new ProductInfo;
+					this.productInfo.id = this.cart[i]._id;
 
-			this.productInfo.quantity = 1;
-			this.order.product.push(this.productInfo);
+					this.productInfo.quantity = 1;
+					this.order.product.push(this.productInfo);
+				}
+
+				try {
+					const result = await this.shopService.createOrder(this.order);
+					const orderId = result.order._id;
+
+					this.localStorageService.deleteLocalStorage();
+					// redirect to paypal
+					const paymentObj = await this.shopService.sendPaypalPaymentRequest(orderId);
+					window.location.href = paymentObj.redirectURL;
+
+
+				} catch (error) {
+				}
+			} else { this.alertService.error('Bitte gültige 5 Stellige Postleitzahl eingeben') }
+		} else {
+			this.alertService.error('Bitte füllen Sie alle Felder aus');
 		}
-
-		try {
-			const result = await this.shopService.createOrder(this.order);
-			const orderId = result.order._id;
-			
-			this.localStorageService.deleteLocalStorage();
-			// redirect to paypal
-			const paymentObj = await this.shopService.sendPaypalPaymentRequest(orderId);
-			window.location.href = paymentObj.redirectURL;
-
-
-		} catch (error) {
-		}
-
-
-
-
 	}
-
-
-
 }

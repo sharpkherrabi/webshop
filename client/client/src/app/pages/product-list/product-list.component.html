@@ -10,10 +10,8 @@
 <app-search (broadcastSearchResult)='onResult($event)'></app-search>
 
 <div class="container">
-
     <div *ngFor="let product of splicedData">
       <mat-card class="product-card">
-
           <mat-card-header>
             <mat-card-title>{{product?.name}}</mat-card-title>
             <mat-card-subtitle>Verfügbar: {{product?.quantity}}</mat-card-subtitle>
