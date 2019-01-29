@@ -21,6 +21,8 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
 import { SearchComponent } from './pages/search/search.component';
 import { PaySuccessfulComponent } from './pages/checkout/pay-successful/pay-successful.component';
 import { PayFailComponent } from './pages/checkout/pay-fail/pay-fail.component';
+import { AlertComponent } from './pages/alert/alert.component';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { PayFailComponent } from './pages/checkout/pay-fail/pay-fail.component';
     UpdateProductComponent,
     SearchComponent,
     PaySuccessfulComponent,
-    PayFailComponent
+    PayFailComponent,
+    AlertComponent
   ],
   imports: [
     AppRoutingModule,
@@ -47,7 +50,9 @@ import { PayFailComponent } from './pages/checkout/pay-fail/pay-fail.component';
     ReactiveFormsModule,
     StorageServiceModule
   ],
-  providers: [],
+  providers: [
+    AlertService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
