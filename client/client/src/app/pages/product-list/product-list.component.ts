@@ -6,7 +6,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from "../../services/local-storage.service";
 import * as _ from 'lodash';
 import { AlertService } from "../../services/alert.service";
-
+import { MaterialModule } from '../../material';
+import {MatSnackBar} from '@angular/material';
 @Component({
 	selector: 'app-product-list',
 	templateUrl: './product-list.component.html',
@@ -29,7 +30,7 @@ export class ProductListComponent implements OnInit {
 
 	// backup products
 	productBackup: Product[] = [];
-	constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService, private alertService:AlertService) {
+	constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService, private snackBar: MatSnackBar) {
 		this.length = 0;
 		this.pageSize = 10;
 	}
@@ -67,7 +68,9 @@ export class ProductListComponent implements OnInit {
 	addProductToCart(p1: Product) {
 		this.localStorageService.storeOneToStorage(p1);
 		this.cartCount += 1;
-		this.alertService.success("Added to cart");
+		this.snackBar.open('Added to Cart', 'Ok', {
+			duration: 1000
+		});
 	}
 
 	viewProduct(_id: string) {

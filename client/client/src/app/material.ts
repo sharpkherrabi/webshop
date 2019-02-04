@@ -14,7 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatBadgeModule} from '@angular/material/badge';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
     imports: [
@@ -32,7 +32,8 @@ import {MatBadgeModule} from '@angular/material/badge';
         MatPaginatorModule,
         MatMenuModule,
         MatTabsModule,
-        MatBadgeModule
+		MatBadgeModule,
+		MatSnackBarModule
     ],
     exports: [
         MatButtonModule,
@@ -49,7 +50,8 @@ import {MatBadgeModule} from '@angular/material/badge';
         MatPaginatorModule,
         MatMenuModule,
         MatTabsModule,
-        MatBadgeModule
+		MatBadgeModule,
+		MatSnackBarModule
     ],
 })
 
