@@ -11,7 +11,8 @@
     <div *ngFor="let product of cart">
       <mat-card class="product-card">
         <mat-card-header>
-          <mat-card-title>{{product?.name}}</mat-card-title>
+		  <mat-card-title>{{product?.name}}</mat-card-title>
+		  <mat-card-subtitle>Die gekaufte Menge: {{product?.boughtQuantity}}</mat-card-subtitle>
         </mat-card-header>
         <img matCardImage src="{{product?.image}}" alt="Produkt Bild">
         <mat-card-content>

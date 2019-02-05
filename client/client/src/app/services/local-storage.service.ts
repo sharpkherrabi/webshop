@@ -17,10 +17,16 @@ export class LocalStorageService {
 
 		//get array from local storage
 		this.localCart = this.storage.get(STORAGE_KEY) || [];
-		// push new task to array
-		this.localCart.push(product);
-		// insert updated array to local storage
-		this.storage.set(STORAGE_KEY, this.localCart);
+		// check if product is already in local storage
+		if (!_.some(this.localCart, { _id: product._id })) {
+			// insert updated array to local storage
+			this.localCart.push(product)
+			this.storage.set(STORAGE_KEY, this.localCart);
+		} else {
+			let index = _.findIndex(this.localCart, { _id: product._id });
+			this.localCart[index] = product;
+			this.storage.set(STORAGE_KEY, this.localCart);
+		}
 	}
 
 	public storeProductsToStorage(products: Product[]) {
@@ -37,5 +43,8 @@ export class LocalStorageService {
 
 	isLocalStorageSet() {
 		return !_.isNull(this.storage.get(STORAGE_KEY));
+	}
+	public async getOneFromStorage(product: Product) {
+		return _.filter(this.storage.get(STORAGE_KEY) || [], { _id: product._id })[0];
 	}
 }

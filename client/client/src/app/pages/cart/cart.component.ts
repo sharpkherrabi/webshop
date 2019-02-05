@@ -3,7 +3,7 @@ import { Product } from "../../models/product";
 import { ShopService } from "../../services/shop.service";
 import { Router } from "@angular/router";
 import { LocalStorageService } from "../../services/local-storage.service";
-
+import * as _ from 'lodash';
 
 @Component({
 	selector: 'app-cart',
@@ -22,10 +22,10 @@ export class CartComponent implements OnInit {
 		if (this.localStorageService.isLocalStorageSet())
 			this.localStorageService.getLocalStorage().then((products) => {
 				this.cart = products;
-				this.cartCount = products.length;
+				this.cartCount = _.sumBy(products, (product) => product['boughtQuantity']);
 
-				for (let i = 0; i < this.cartCount; i++) {
-					this.sum = this.sum + this.cart[i].unitPrice;
+				for (let i = 0; i < this.cart.length; i++) {
+					this.sum = this.sum + this.cart[i].unitPrice * this.cart[i].boughtQuantity;
 				}
 			});
 	}
@@ -33,13 +33,13 @@ export class CartComponent implements OnInit {
 	removeProduct(product: Product) {
 		for (let i = 0; i < this.cart.length; i++) {
 			if (this.cart[i]._id === product._id) {
-				this.sum = this.sum - this.cart[i].unitPrice;
+				this.sum = this.sum - this.cart[i].unitPrice * this.cart[i].boughtQuantity;
 				this.cart.splice(i, 1);
 				break;
 			}
 		}
 		this.localStorageService.storeProductsToStorage(this.cart);
-		this.cartCount -= 1;
+		this.cartCount -= product.boughtQuantity;
 	}
 
 	removeAllProducts() {

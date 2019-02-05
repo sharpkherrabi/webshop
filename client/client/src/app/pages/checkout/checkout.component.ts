@@ -58,14 +58,13 @@ export class CheckoutComponent implements OnInit {
 			&& !_.isUndefined(this.order.email) && !_.isUndefined(this.order.orderer.firstname) && !_.isUndefined(this.order.orderer.lastname)) {
 			//check if touched but without input
 			if (this.order.orderer.lastname.length > 0 && this.order.orderer.firstname.length > 0 && this.order.email.length > 0
-				&& this.order.address.city.length > 0 && this.order.address.country.length > 0 && this.order.address.houseNr.length > 0
-				&& this.order.address.street.length > 0) {
+				&& this.order.address.city.length > 0 && this.order.address.country.length > 0 && this.order.address.street.length > 0) {
 				if (this.order.address.zip.length == 5) {
 					for (let i = 0; i < this.cart.length; i++) {
 						this.productInfo = new ProductInfo;
 						this.productInfo.id = this.cart[i]._id;
 
-						this.productInfo.quantity = 1;
+						this.productInfo.quantity = this.cart[i].boughtQuantity;
 						this.order.product.push(this.productInfo);
 					}
 
