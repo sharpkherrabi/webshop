@@ -57,29 +57,26 @@ export class CheckoutComponent implements OnInit {
 			&& !_.isUndefined(this.order.address.street) && !_.isUndefined(this.order.address.zip)
 			&& !_.isUndefined(this.order.email) && !_.isUndefined(this.order.orderer.firstname) && !_.isUndefined(this.order.orderer.lastname)) {
 			//check if touched but without input
-			if (this.order.orderer.lastname.length > 0 && this.order.orderer.firstname.length > 0 && this.order.email.length > 0
-				&& this.order.address.city.length > 0 && this.order.address.country.length > 0 && this.order.address.street.length > 0) {
-				if (this.order.address.zip.length == 5) {
-					for (let i = 0; i < this.cart.length; i++) {
-						this.productInfo = new ProductInfo;
-						this.productInfo.id = this.cart[i]._id;
+			if (this.order.address.zip.length == 5) {
+				for (let i = 0; i < this.cart.length; i++) {
+					this.productInfo = new ProductInfo;
+					this.productInfo.id = this.cart[i]._id;
 
-						this.productInfo.quantity = this.cart[i].boughtQuantity;
-						this.order.product.push(this.productInfo);
-					}
+					this.productInfo.quantity = this.cart[i].boughtQuantity;
+					this.order.product.push(this.productInfo);
+				}
 
-					try {
-						const result = await this.shopService.createOrder(this.order);
-						const orderId = result.order._id;
+				try {
+					const result = await this.shopService.createOrder(this.order);
+					const orderId = result.order._id;
 
-						this.localStorageService.deleteLocalStorage();
-						// redirect to paypal
-						const paymentObj = await this.shopService.sendPaypalPaymentRequest(orderId);
-						window.location.href = paymentObj.redirectURL;
-					} catch (error) {
-					}
-				} else { this.alertService.error('Bitte gültige 5 Stellige Postleitzahl eingeben'); }
-			} else { this.alertService.error('Bitte füllen Sie alle Felder aus'); }
+					this.localStorageService.deleteLocalStorage();
+					// redirect to paypal
+					const paymentObj = await this.shopService.sendPaypalPaymentRequest(orderId);
+					window.location.href = paymentObj.redirectURL;
+				} catch (error) {
+				}
+			} else { this.alertService.error('Bitte gültige 5 Stellige Postleitzahl eingeben'); }
 		} else { this.alertService.error('Bitte füllen Sie alle Felder aus'); }
 	}
 }
