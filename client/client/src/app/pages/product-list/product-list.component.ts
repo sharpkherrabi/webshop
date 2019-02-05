@@ -37,8 +37,9 @@ export class ProductListComponent implements OnInit {
 
 	ngOnInit() {
 		// get all products from db
-		this.shopService.getAllProducts().then((result) => {
-			this.products = result.products;
+		this.shopService.getAllProducts().then(async (result) => {
+			let localStorageProducts = await this.localStorageService.getLocalStorage();
+			this.products = _.unionWith(localStorageProducts, result.products, (a: Product, b: Product) => a._id === b._id);
 			if (this.products != null) {
 				this.length = this.products.length;
 				this.splicedData = this.products.slice(((0 + 1) - 1) * this.pageSize).slice(0, this.pageSize);
@@ -49,7 +50,7 @@ export class ProductListComponent implements OnInit {
 		});
 		if (this.localStorageService.isLocalStorageSet())
 			this.localStorageService.getLocalStorage().then((products) => {
-				this.cartCount = products.length;
+				this.cartCount = _.sumBy(products, (product) => product['boughtQuantity']);
 			});
 	}
 
@@ -66,6 +67,8 @@ export class ProductListComponent implements OnInit {
 	}
 
 	addProductToCart(p1: Product) {
+		if (_.isUndefined(p1.boughtQuantity)) p1.boughtQuantity = 0;
+		++p1.boughtQuantity;
 		this.localStorageService.storeOneToStorage(p1);
 		this.cartCount += 1;
 		this.snackBar.open('Added to Cart', 'Ok', {
