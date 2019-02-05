@@ -18,8 +18,9 @@ Um das Programm verwenden zu können muss die Angular CLI installiert werden mit
 
 ``npm i -g @angular/cli``
 
-##Produkt hinzufügen
-![Produkt hinzufügen](ProduktHinzufügen.gif)
+## Produkt hinzufügen
+
+![Produkt hinzufügen](newproduct.gif)
 
 ## Further help
 
