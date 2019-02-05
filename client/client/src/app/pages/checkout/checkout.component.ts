@@ -56,10 +56,7 @@ export class CheckoutComponent implements OnInit {
 		if (!_.isUndefined(this.order.address.city) && !_.isUndefined(this.order.address.country) && !_.isUndefined(this.order.address.houseNr)
 			&& !_.isUndefined(this.order.address.street) && !_.isUndefined(this.order.address.zip)
 			&& !_.isUndefined(this.order.email) && !_.isUndefined(this.order.orderer.firstname) && !_.isUndefined(this.order.orderer.lastname)) {
-			//check if touched but without input
-			if (this.order.orderer.lastname.length > 0 && this.order.orderer.firstname.length > 0 && this.order.email.length > 0
-				&& this.order.address.city.length > 0 && this.order.address.country.length > 0 && this.order.address.houseNr.length > 0
-				&& this.order.address.street.length > 0) {
+
 				if (this.order.address.zip.length == 5) {
 					for (let i = 0; i < this.cart.length; i++) {
 						this.productInfo = new ProductInfo;
@@ -80,7 +77,6 @@ export class CheckoutComponent implements OnInit {
 					} catch (error) {
 					}
 				} else { this.alertService.error('Bitte gültige 5 Stellige Postleitzahl eingeben'); }
-			} else { this.alertService.error('Bitte füllen Sie alle Felder aus'); }
 		} else { this.alertService.error('Bitte füllen Sie alle Felder aus'); }
 	}
 }
