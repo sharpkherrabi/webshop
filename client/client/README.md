@@ -20,7 +20,7 @@ Um das Programm verwenden zu können muss die Angular CLI installiert werden mit
 
 ## Produkt hinzufügen
 
-![Produkt hinzufügen](newproduct.gif)
+![Produkt hinzufügen](gifs/newproduct.gif)
 
 ## Further help
 
