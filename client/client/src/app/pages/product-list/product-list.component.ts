@@ -5,7 +5,6 @@ import { PageEvent } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from "../../services/local-storage.service";
 import * as _ from 'lodash';
-import { AlertService } from "../../services/alert.service";
 import { MaterialModule } from '../../material';
 import {MatSnackBar} from '@angular/material';
 @Component({

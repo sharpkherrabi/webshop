@@ -4,9 +4,8 @@ import { ShopService } from "../../services/shop.service";
 import { Router } from "@angular/router";
 import { LocalStorageService } from "../../services/local-storage.service";
 import { Order, Orderer, Address, ProductInfo } from '../../models/order';
-import { AlertService } from '../../services/alert.service';
 import * as _ from 'lodash';
-
+import {MatSnackBar} from '@angular/material';
 @Component({
 	selector: 'app-checkout',
 	templateUrl: './checkout.component.html',
@@ -32,7 +31,7 @@ export class CheckoutComponent implements OnInit {
 	pageSize = 10;
 
 
-	constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService, private alertService: AlertService) {
+	constructor(private shopService: ShopService, private router: Router, private localStorageService: LocalStorageService, private snackBar: MatSnackBar) {
 	}
 
 	ngOnInit() {
@@ -76,7 +75,11 @@ export class CheckoutComponent implements OnInit {
 					window.location.href = paymentObj.redirectURL;
 				} catch (error) {
 				}
-			} else { this.alertService.error('Bitte gültige 5 Stellige Postleitzahl eingeben'); }
-		} else { this.alertService.error('Bitte füllen Sie alle Felder aus'); }
+			} else { this.snackBar.open('Bitte gültige 5 Stellige Postleitzahl eingeben', 'OK', {
+				duration: 1000
+			}); }
+		} else { this.snackBar.open('Bitte füllen Sie alle Felder aus', 'OK', {
+			duration: 1000
+		}); }
 	}
 }
