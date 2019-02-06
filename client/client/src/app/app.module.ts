@@ -21,8 +21,6 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
 import { SearchComponent } from './pages/search/search.component';
 import { PaySuccessfulComponent } from './pages/checkout/pay-successful/pay-successful.component';
 import { PayFailComponent } from './pages/checkout/pay-fail/pay-fail.component';
-import { AlertComponent } from './pages/alert/alert.component';
-import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +36,6 @@ import { AlertService } from './services/alert.service';
     SearchComponent,
     PaySuccessfulComponent,
     PayFailComponent,
-    AlertComponent
   ],
   imports: [
     AppRoutingModule,
@@ -51,7 +48,6 @@ import { AlertService } from './services/alert.service';
     StorageServiceModule
   ],
   providers: [
-    AlertService
   ],
   bootstrap: [AppComponent]
 })
