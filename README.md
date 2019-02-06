@@ -54,7 +54,7 @@ Um auf die Checkout Seite zu gelangen, klickt man auf den Button:
 Anschließend befindet man sich unter dieser URL:
 ``http://localhost:4200/checkout``
 
-![ ]//(gifs/checkout.gif)
+![ ](gifs/checkout.gif)
 
 ## Dashboard Seite
 Um Produkte hinzuzufügen, bearbeiten, löschen und Bestellungen einzusehen muss man sich auf der Dashboard Seite befinden
