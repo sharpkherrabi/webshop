@@ -3,7 +3,8 @@ import { Product } from '../../models/product';
 import { ShopService } from '../../services/shop.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from "../../services/local-storage.service";
-
+import {MatSnackBar} from '@angular/material';
+import * as _ from 'lodash';
 @Component({
 	selector: 'app-product-item-detail',
 	templateUrl: './product-item-detail.component.html',
@@ -22,7 +23,8 @@ export class ProductItemDetailComponent implements OnInit {
 		private shopService: ShopService,
 		private router: Router,
 		private route: ActivatedRoute,
-		private localStorageService: LocalStorageService) { }
+		private localStorageService: LocalStorageService,
+		private snackBar: MatSnackBar) { }
 
 	ngOnInit() {
 		this.route.queryParams.subscribe((params) => {
@@ -43,8 +45,13 @@ export class ProductItemDetailComponent implements OnInit {
 	}
 
 	addProductToCart(p1: Product) {
+		if (_.isUndefined(p1.boughtQuantity)) p1.boughtQuantity = 0;
+		++p1.boughtQuantity;
 		this.localStorageService.storeOneToStorage(p1);
 		this.cartCount += 1;
+		this.snackBar.open('Added to Cart', 'Ok', {
+			duration: 1000
+		});
 	}
 
 	onBackClicked() {
